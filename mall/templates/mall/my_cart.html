@@ -6,26 +6,91 @@
     <title>my_cart</title>
     <!--<link rel="stylesheet" href="/static/js/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="{% static 'js/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'mall' %}">
+    <link rel="stylesheet" href="{% static 'mall/css/app/my_cart.css' %}">
 </head>
 <body>
-    <div class="container-fluid">
-        <!--标头-->
-        <div class="container">
-            <!--图标-->
-            <img src="">
+<!--标头-->
+    <div class="container_fluid button">
 
-            <div>
-                <h2>我的购物车</h2>
-                <p>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</p>
+        <div class="container title">
+
+            <!--左-->
+            <img class="title_left left" src="{% static 'mall/images/mi.png' %}">
+
+            <!--中-->
+            <div class="title_in">
+                <p class="left">我的购物车</p>
+                <span class="left">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span>
             </div>
 
-            <div>
+            <!--右-->
+            <div class="title_right right">
                 <a href="">
-                    <span>名称</span>
+                    登录
+                </a>
+                <span>|</span>
+                <a href="">
+                    注册
                 </a>
             </div>
         </div>
+    </div>
+
+    <!--选择商品-->
+    <div class="container_fluid bg">
+
+        <div class="container">
+            <ul class="list-group menu">
+                <!--上-->
+              <li class="list-group-item menu_top">
+                  <div class="row">
+                      <div class="col-lg-2"><input type="checkbox">全选</div>
+                      <div class="col-lg-4">商品名称</div>
+                      <div class="col-lg-1 text-center">单价</div>
+                      <div class="col-lg-2 text-center">数量</div>
+                      <div class="col-lg-1 text-center">小计</div>
+                      <div class="col-lg-2 text-center">操作</div>
+                  </div>
+              </li>
+                <!--中-->
+              <li class="list-group-item menu_in">
+                  <div class="row">
+                      <div class="col-md-1 menu_in_left"><input type="checkbox"></div>
+
+                      <div class="col-md-11 menu_in_right">
+                          <div class="menu_in_right_top row">
+                              <div class="col-md-1">
+                                <img src="{% static 'mall/images/phone80x80.jpg' %}">
+                              </div>
+                              <div class="col-md-4"><a href="">小米8全网通 6G内存 64GB 黑色</a></div>
+                              <div class="col-md-2 text-center">2499元</div>
+                              <div class="col-md-2 text-center">
+                                  <a class="left" href="">-</a>
+                                  <a href="">1</a>
+                                  <a class="right" href="">+</a>
+                              </div>
+                              <div class="col-md-2">2499元</div>
+                              <div class="col-md-1 text-center">x</div>
+                          </div>
+
+                          <div class="menu_in_right_in row">
+                                <div class="col-md-1 text-center">图片</div>
+                                <div class="col-md-6">赠品</div>
+                                <div class="col-md-1 text-center">1</div>
+                                <div class="col-md-4"></div>
+                          </div>
+
+                          <div class="menu_in_right_lower">
+
+                          </div>
+                      </div>
+                  </div>
+              </li>
+                <!--下-->
+              <li class="list-group-item menu_lower">Morbi leo risus</li>
+            </ul>
+        </div>
+
     </div>
 </body>
 </html>
