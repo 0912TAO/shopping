@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse    # 反解析
 
 # 主页
 def index(request):
-    pass
+    return render(request, "mall/index.html", {})
 
 
 # 注册

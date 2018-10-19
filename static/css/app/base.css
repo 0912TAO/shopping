@@ -208,8 +208,8 @@ nav ul li a:hover{
 }
 
 #baner{
-    width: 1226px;
-    height: 460px;
+    width: 1200px;
+    height: 370px;
     background-color: #ccc;
     margin: auto;
 }
@@ -220,6 +220,7 @@ main{
     background-color: #eee;
     margin: 0 auto;
     margin-top: 50px;
+    position: relative;
 }
 .sj{
     width: 1226px;
@@ -457,13 +458,15 @@ main{
     right: 2%;
     bottom: 150px;
     background-color: #fff;
+    width: 40px;
 }
 .bar ul{
+    width: 40px;
     height: 150px;
 }
 .bar ul li{
-    width: 30px;
-    height: 40px;
+    width: 40px;
+    height: 50px;
     border:1px solid #ccc;
 }
 .bar ul li a{
@@ -471,11 +474,80 @@ main{
     margin-top: 10px;
     text-align: center;
     color: #999;
+    width: 40px;
 }
 
 .bar ul li a:hover{
     color: #f54b07;
 }
+
+.two-nav{
+    width: 20%;
+    height: 370px;
+    background-color: #333;
+    position: relative;
+}
+.two-nav ul{
+    padding: 20px 0;
+}
+.two-nav ul li{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding:0 30px;
+    margin-top: 10px;
+}
+.two-nav ul li a{
+    display: inline-block;
+    /*width: 100%;*/
+    /*height: 40px;*/
+    color: #f1f1f1;
+    font-size: 15px;
+
+}
+.two-nav ul li span{
+    color: #ccc;
+}
+.two-nav ul li a:hover{
+    text-decoration: none;
+}
+.two-nav ul li:hover{
+    background-color: #f54b07;
+}
+.two-nav ul li .content{
+    width: 800px;
+    height: 370px;
+    background-color: #fff;
+    position: absolute;
+    top:0;
+    left: 245px;
+    z-index: 99;
+    display: none;
+    border-top: 1px solid #ccc;
+    box-shadow: 5px 5px 5px #999;
+}
+.two-nav ul li .content ul li{
+    width: 150px;
+    height: 50px;
+    /*background-color: #aaa;*/
+    float: left;
+    margin:10px 20px;
+    padding: 0;
+}
+.two-nav ul li .content ul li a{
+    display: block;
+    width: 150px;
+    height: 50px;
+    font-size: 13px;
+    color: #333;
+    line-height: 50px;
+}
+.two-nav ul li .content ul li a img{
+    width: 40px;
+    height: 40px;
+}
+
+
 
 
 
