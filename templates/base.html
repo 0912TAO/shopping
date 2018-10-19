@@ -33,13 +33,13 @@
         <div class="right top-nav-content-r">
             <div class="user">
                 <ul>
-                    <li><a href="#">登录</a></li>
-                    <li><a href="#">注册</a></li>
+                    <li><a href="{% url 'mall:user_login' %}">登录</a></li>
+                    <li><a href="{% url 'mall:register' %}">注册</a></li>
                     <li><a href="#" class="end">消息通知</a></li>
                 </ul>
             </div>
             <div class="car">
-                <a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>购物车(0)</a>
+                <a href="{% url 'mall:my_cart' %}"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>购物车(0)</a>
             </div>
             <div class="car-neirong" hidden="hidden" style="z-index:auto">
                 购物车中还没有商品，赶紧选购吧！
@@ -50,7 +50,7 @@
 
 <div class="menu">
     <div id="logo">
-        <a href="#">
+        <a href="{% url 'mall:index'%}">
             MI
         </a>
     </div>
@@ -352,6 +352,7 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
+
                 <div class="item active">
                     <img src="{% static 'image/baner1.jpg' %}" alt="...">
                     <!--<div class="carousel-caption">-->
@@ -364,7 +365,6 @@
                     <!--...-->
                     <!--</div>-->
                 </div>
-
             </div>
 
             <!-- Controls -->
@@ -738,8 +738,7 @@
             </ul>
         </div>
     </div>
-    <div class="boottom">
-        <p class="text-center"></p>
+    <div class="boottomm">
     </div>
 </div>
 {% endblock %}

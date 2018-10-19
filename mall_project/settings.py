@@ -28,7 +28,7 @@ SECRET_KEY = '7m-!%%8wyf^^_mq72f#s0o5ri31k%b#5dtizrnrjmw(-0p^l#1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -77,16 +77,16 @@ WSGI_APPLICATION = 'mall_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shop',
-        'HOST': '192.168.13.14',
-        'PORT': 3306,
-        'USER': 'root',
-        'PASSWORD': 'tomtao'
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'shop',
+#         'HOST': '192.168.13.14',
+#         'PORT': 3306,
+#         'USER': 'root',
+#         'PASSWORD': 'tomtao'
+#     }
+# }
 
 
 # Password validation

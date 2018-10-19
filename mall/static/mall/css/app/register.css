@@ -1,0 +1,49 @@
+body{
+    background: #ccc;
+    color: #333;
+    font-size: 14px;
+    font-family: arial,"Hiragino Sans GB", "Microsoft YaHei","微軟正黑體","儷黑 Pro", sans-serif;
+}
+.box{
+    background-color: #fff;
+    width: 850px;
+    height: 600px;
+    margin-top: 33px;
+    box-shadow: 5px 5px 5px #999;
+}
+#logo{
+    width: 55px;
+    height: 55px;
+    background-color: #ff6700;
+    margin:auto;
+}
+#logo a{
+    display: block;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 55px;
+    text-align: center;
+ }
+#logo a:hover{
+    text-decoration: none;
+}
+#sub_btn{
+    width: 100%;
+    margin-top: 30px;
+    background-color:#f54b07;
+    color: #fff;
+}
+#bottom{
+    margin-top: 30px;
+    color: #666;
+}
+.xia{
+    margin-top: 10px;
+}
+.xia a{
+    color: #666;
+}
+
+
+
