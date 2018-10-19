@@ -77,16 +77,16 @@ WSGI_APPLICATION = 'mall_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'shop',
-#         'HOST': '192.168.13.14',
-#         'PORT': 3306,
-#         'USER': 'root',
-#         'PASSWORD': 'tomtao'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'shop',
+        'HOST': '192.168.13.29',
+        'PORT': 3306,
+        'USER': 'manbanzhen',
+        'PASSWORD': '1234567'
+    }
+}
 
 
 # Password validation
