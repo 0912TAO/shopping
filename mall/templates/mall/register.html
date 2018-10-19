@@ -48,7 +48,7 @@
                         <div class="form-group">
                             <label for="yzm" class="col-md-3 control-label">验证码：</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="yzm" placeholder="请确认验证码" name="yzm"
+                                <input type="text" class="form-control" id="yzm" placeholder="请输入验证码" name="code"
                                        required autocomplete="off">
                             </div>
                             <div class="col-md-3">
@@ -79,7 +79,7 @@
 <script>
     function changeCode() {
 //            document.getElementById("code").src = "/blog/code?id="+ new Date().getTime()
-        document.getElementById("code").src = "/blog/code?id=" + Math.random()
+        document.getElementById("code").src = "/mall/code?id=" + Math.random()
     }
 
     // 验证用户名
@@ -96,7 +96,7 @@
                 success: function (data) {
                     console.log(data)
                     if (data.success) {
-                        // $("#uname").addClass("has-success")
+                        $("#sub_btn").removeAttr("disabled")
                         $("#msg").html("<span style='color:green;'>" + data.msg + "</span>")
                     } else {
                         // $("#uname").addClass("has-error")
@@ -119,7 +119,7 @@
                     $("#msg").html("<span style='color:red;'>" + "密码长度不足6位" + "</span>")
                 } else {
                     // $("#pwb").addClass("has-success")
-
+                    $("#sub_btn").removeAttr("disabled")
                     $("#msg").html("<span style='color:green;'>" + "密码合法！！请继续输入" + "</span>")
                 }
             })
@@ -145,15 +145,28 @@
 
 
         //验证码验证
-        // $(function () {
-        //     $("#yzm").on("blur",function () {
-        //         console.log("输入过验证码了")
-        //         yzm = $("#yzm").val()
-        //         console.log(yzm)
-        //        if (yzm.length > 0):
-        //         return
-        //     })
-        // })
+         $("#yzm").on("blur", function () {
+            console.log("abc")
+            yzm = $("#yzm").val()
+            console.log(yzm)
+            $.ajax({
+                url: "/mall/" + yzm + "/checkcode/",
+                method: "POST",
+                dataType: "json",
+                data: {"csrfmiddlewaretoken": "{{ csrf_token }}"},
+                success: function (data) {
+                    console.log(data)
+                    if (data.success) {
+                        $("#sub_btn").removeAttr("disabled")
+                        $("#msg").html("<span style='color:green;'>" + data.msg + "</span>")
+                    } else {
+                        // $("#uname").addClass("has-error")
+                        $("#sub_btn").attr("disabled", true)
+                        $("#msg").html("<span style='color:red;font-size: 12px;line-height: 5px;'>" + data.msg + "</span>")
+                    }
+                }
+            })
+        })
 
     })
 </script>
