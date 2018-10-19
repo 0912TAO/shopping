@@ -1,14 +1,20 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ch">
+{% extends 'base.html' %}
 <head>
     {% load static %}
     <meta charset="UTF-8">
-    <title>my_cart</title>
+    <title>{% block title %}my_cart{% endblock %}</title>
     <!--<link rel="stylesheet" href="/static/js/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">-->
-    <link rel="stylesheet" href="{% static 'js/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
+    <!--<link rel="stylesheet" href="{% static 'js/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">-->
+    {% block css %}
     <link rel="stylesheet" href="{% static 'mall/css/app/my_cart.css' %}">
+    {% endblock %}
 </head>
+
 <body>
+{% block body %}
 <!--标头-->
     <div class="container_fluid button">
 
@@ -40,9 +46,9 @@
     <div class="container_fluid bg">
 
         <div class="container">
-            <ul class="list-group menu">
+            <ul class="list-group cookbook">
                 <!--上-->
-              <li class="list-group-item menu_top">
+              <li class="list-group-item cookbook_top">
                   <div class="row">
                       <div class="col-lg-2"><input type="checkbox">全选</div>
                       <div class="col-lg-4">商品名称</div>
@@ -53,12 +59,12 @@
                   </div>
               </li>
                 <!--中-->
-              <li class="list-group-item menu_in">
+              <li class="list-group-item cookbook_in">
                   <div style="margin-right: 0;" class="row">
-                      <div class="col-md-1 menu_in_left"><input type="checkbox"></div>
+                      <div class="col-md-1 cookbook_in_left"><input type="checkbox"></div>
 
-                      <div class="col-md-11 menu_in_right">
-                          <div class="menu_in_right_top row">
+                      <div class="col-md-11 cookbook_in_right">
+                          <div class="cookbook_in_right_top row">
                               <div class="col-md-1">
                                 <img src="{% static 'mall/images/phone80x80.jpg' %}">
                               </div>
@@ -73,14 +79,14 @@
                               <div class="col-md-1 text-center">x</div>
                           </div>
 
-                          <div class="row menu_in_right_in">
+                          <div class="row cookbook_in_right_in">
                                 <div class="col-md-1 text-center">图片</div>
                                 <div class="col-md-6">赠品</div>
                                 <div class="col-md-1 text-center">1</div>
                                 <div class="col-md-4"></div>
                           </div>
 
-                          <div class="menu_in_right_lower">
+                          <div class="cookbook_in_right_lower">
                                 <div style="margin-top: 10px;">
                                     <a href="">
                                         <img src="{% static 'mall/images/+.png'%}">意外保障服务249元
@@ -97,20 +103,109 @@
         </div>
         <!--总价-->
 
-        <div class="container menu_lower">
+        <div class="container cookbook_lower">
 
-            <div class="left menu_lower_left">
-                <a href="">继续购物</a>
+            <div class="left cookbook_lower_left">
+                <a href="">继续购物</a>&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
                 <span>共 1 件商品，已选择 1 件 </span>
             </div>
 
-            <div class="right menu_lower_right">
+            <div class="right cookbook_lower_right">
                 <span>合计:</span>
-                <p class="inline_block">769元</p>
-                <a>去结算</a>
+                <p class="inline_block">769</p>元
+                <a href="">去结算</a>
             </div>
         </div>
 
+        <!--买商品的人还买了-->
+        <div class="container propose">
+            <h2 class="propose_title text-center">
+                <span>买购物车中商品的人还买了</span>
+            </h2>
+        </div>
+
+        <!--推荐商品-->
+        <div class="container propose_shop">
+            <ul>
+                <li><img style="width: 218px; height: 300px;" src="https://c1.mifile.cn/f/i/2014/cn/10046/gouwuche!234x300.jpg"></li>
+                <li>
+                    <div class="text-center">
+                        <a></a>
+                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                        <dd>2099元</dd>
+                        <dd>xxx人好评</dd>
+                    </div>
+                </li>
+                <li>
+                    <div class="text-center">
+                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                        <dd>2099元</dd>
+                        <dd>xxx人好评</dd>
+                    </div>
+                </li>
+                <li>
+                    <div class="text-center">
+                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                        <dd>2099元</dd>
+                        <dd>xxx人好评</dd>
+                    </div>
+                </li>
+                <li>
+                    <div class="text-center">
+                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                        <dd>2099元</dd>
+                        <dd>xxx人好评</dd>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="text-center">
+                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                        <dd>2099元</dd>
+                        <dd>xxx人好评</dd>
+                    </div>
+                </li>
+                <li>
+                    <div class="text-center">
+                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                        <dd>2099元</dd>
+                        <dd>xxx人好评</dd>
+                    </div>
+                </li>
+                <li>
+                    <div class="text-center">
+                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                        <dd>2099元</dd>
+                        <dd>xxx人好评</dd>
+                    </div>
+                </li>
+                <li>
+                    <div class="text-center">
+                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                        <dd>2099元</dd>
+                        <dd>xxx人好评</dd>
+                    </div>
+                </li>
+                <li>
+                    <div class="text-center">
+                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                        <dd>2099元</dd>
+                        <dd>xxx人好评</dd>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
+{% endblock %}
 </body>
+
 </html>
