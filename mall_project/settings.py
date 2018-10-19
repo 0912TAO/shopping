@@ -28,7 +28,7 @@ SECRET_KEY = '7m-!%%8wyf^^_mq72f#s0o5ri31k%b#5dtizrnrjmw(-0p^l#1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -78,7 +78,6 @@ WSGI_APPLICATION = 'mall_project.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 
-# MySQL
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
@@ -89,6 +88,8 @@ WSGI_APPLICATION = 'mall_project.wsgi.application'
 #         'PASSWORD': 'tomtao'
 #     }
 # }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
