@@ -90,15 +90,6 @@ WSGI_APPLICATION = 'mall_project.wsgi.application'
 #     }
 # }
 
-# SQLlite
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'blogDB.db'),
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
