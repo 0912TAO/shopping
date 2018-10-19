@@ -54,7 +54,7 @@
               </li>
                 <!--中-->
               <li class="list-group-item menu_in">
-                  <div class="row">
+                  <div style="margin-right: 0;" class="row">
                       <div class="col-md-1 menu_in_left"><input type="checkbox"></div>
 
                       <div class="col-md-11 menu_in_right">
@@ -73,7 +73,7 @@
                               <div class="col-md-1 text-center">x</div>
                           </div>
 
-                          <div class="menu_in_right_in row">
+                          <div class="row menu_in_right_in">
                                 <div class="col-md-1 text-center">图片</div>
                                 <div class="col-md-6">赠品</div>
                                 <div class="col-md-1 text-center">1</div>
@@ -81,14 +81,34 @@
                           </div>
 
                           <div class="menu_in_right_lower">
+                                <div style="margin-top: 10px;">
+                                    <a href="">
+                                        <img src="{% static 'mall/images/+.png'%}">意外保障服务249元
+                                    </a>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a style="color: #ff6700;" href="">了解保障服务></a>
 
+                                </div>
                           </div>
                       </div>
                   </div>
               </li>
-                <!--下-->
-              <li class="list-group-item menu_lower">Morbi leo risus</li>
             </ul>
+        </div>
+        <!--总价-->
+
+        <div class="container menu_lower">
+
+            <div class="left menu_lower_left">
+                <a href="">继续购物</a>
+                <span>共 1 件商品，已选择 1 件 </span>
+            </div>
+
+            <div class="right menu_lower_right">
+                <span>合计:</span>
+                <p class="inline_block">769元</p>
+                <a>去结算</a>
+            </div>
         </div>
 
     </div>

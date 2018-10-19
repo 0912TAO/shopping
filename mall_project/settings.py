@@ -77,14 +77,24 @@ WSGI_APPLICATION = 'mall_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+
+# MySQL
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'shop',
+#         'HOST': '192.168.13.14',
+#         'PORT': 3306,
+#         'USER': 'root',
+#         'PASSWORD': 'tomtao'
+#     }
+# }
+
+# SQLlite
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shop',
-        'HOST': '192.168.13.14',
-        'PORT': 3306,
-        'USER': 'root',
-        'PASSWORD': 'tomtao'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'blogDB.db'),
     }
 }
 
