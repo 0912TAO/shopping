@@ -235,6 +235,7 @@
 }
 
 .propose_shop ul li{
+    position: relative;
     float: left;
     width: 218px;
     height: 300px;
@@ -243,7 +244,7 @@
     background: #ffffff;
 }
 
-.propose_shop ul li img{
+.propose_shop ul li a img{
     padding-top: 40px;
     padding-bottom: 10px;
 }
@@ -252,23 +253,50 @@
     padding: 0;
 }
 
-.propose_shop ul li div{
+.propose_shop ul li a div{
     padding: 0 10px;
 }
 
-.propose_shop ul li div dd:nth-of-type(1){
+.propose_shop ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.propose_shop ul li a:hover{
+
+}
+
+.propose_shop ul li a div dd:nth-of-type(1){
     padding: 5px 0;
 }
 
-.propose_shop ul li div dd:nth-of-type(2){
+.propose_shop ul li a div dd:nth-of-type(2){
     color: #ff6700;
     padding: 5px 0;
 }
 
-.propose_shop ul li div dd:nth-of-type(3){
+.propose_shop ul li a div span{
     font-size: 16px;
     color: #757575;
     padding: 10px 0;
+}
+
+.propose_shop ul li a:nth-of-type(2){
+    position: absolute;
+    bottom: 18px;
+    left: 60px;
+    border: 1px solid #ff6700;
+    color: #ff6700;
+    padding: 5px 15px;
+    font-size: 12px;
+    /*left: 50%;*/
+    /*margin-left: -36px;*/
+
+}
+
+.propose_shop ul li a:nth-of-type(2):hover{
+    color: #ffffff;
+    background: #ff6700;
 }
 
 

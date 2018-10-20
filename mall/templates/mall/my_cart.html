@@ -108,7 +108,7 @@
                           </div>
                       </div>
                   </div>
-                  
+
               </li>
             </ul>
         </div>
@@ -143,78 +143,98 @@
             <ul>
                 <li><img style="width: 218px; height: 300px;" src="https://c1.mifile.cn/f/i/2014/cn/10046/gouwuche!234x300.jpg"></li>
                 <li>
+                    <a id="show" href="">
                     <div class="text-center">
-                        <a></a>
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
-                        <dd>xxx人好评</dd>
+                        <span id="hp">xxx人好评</span>
+
                     </div>
+                    </a>
+                    <a id="add" href="" hidden>加入购物车</a>
                 </li>
                 <li>
+                    <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
+                    </a>
                 </li>
                 <li>
+                    <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
+                    </a>
                 </li>
                 <li>
+                    <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
+                    </a>
                 </li>
 
                 <li>
+                    <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
+                    </a>
                 </li>
                 <li>
+                    <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
+                    </a>
                 </li>
                 <li>
+                    <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
+                    </a>
                 </li>
                 <li>
+                    <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
+                    </a>
                 </li>
                 <li>
+                    <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
+
                     </div>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -303,7 +323,21 @@
                 $('#all_checkbox').prop('checked',false);
             }
 
-        })
+        });
+
+        // $('#add').hide();
+
+        // 鼠标放在show块上隐藏价格 显示加入购物车
+        $('#show').mouseenter(function () {
+            $('#add').show();
+            $('#hp').hide();
+        });
+
+        $('#show').mouseleave(function () {
+            $('#add').hide();
+            $('#hp').show();
+        });
+
 
 
 
