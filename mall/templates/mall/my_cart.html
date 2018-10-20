@@ -36,11 +36,11 @@
 
             <!--右-->
             <div class="title_right right">
-                <a href="">
+                <a href="{% url 'mall:user_logout' %}">
                     登录
                 </a>
                 <span>|</span>
-                <a href="">
+                <a href="{% url 'mall:register' %}">
                     注册
                 </a>
             </div>
@@ -55,7 +55,7 @@
                 <!--上-->
               <li class="list-group-item cookbook_top">
                   <div class="row hidden-xs">
-                      <div class="col-lg-2 col-sm-2 "><input type="checkbox">全选</div>
+                      <div class="col-lg-2 col-sm-2 "><input id="all_checkbox" type="checkbox">全选</div>
                       <div class="col-lg-4 col-sm-4 ">商品名称</div>
                       <div class="col-lg-1 col-sm-1  text-center">单价</div>
                       <div class="col-lg-2 col-sm-2  text-center">数量</div>
@@ -66,7 +66,7 @@
                 <!--中-->
               <li class="list-group-item cookbook_in">
                   <div style="margin-right: 0;" class="row">
-                      <div class="col-md-1  cookbook_in_left"><input type="checkbox"></div>
+                      <div class="col-md-1  cookbook_in_left"><input class="checkbox" type="checkbox"></div>
 
                       <div class="col-md-11 cookbook_in_right">
                           <div class="cookbook_in_right_top row">
@@ -75,15 +75,17 @@
                               </div>
                               <div class="col-md-4 col-sm-4"><a href="">小米8全网通 6G内存 64GB 黑色</a></div>
                               <!--jq获取单价-->
-                              <div class="col-md-2 col-sm-2 text-center price" >2499元</div>
+                              <div class="col-md-2 col-sm-2 text-center " >
+                                  <span class="price">2499元</span>
+                              </div>
                               <div class="col-md-2 col-sm-2 text-center">
                                   <a class="left" id="less" href="javascript:void(0)">&nbsp;&nbsp;-&nbsp; </a>
                                   <!--jq总数-->
                                   <span style="font-size: 18px;font-weight: 500;color: black;" class="sum" >1</span>
                                   <a class="right" id="plus" href="javascript:void(0)"> &nbsp;+&nbsp;&nbsp;</a>
                               </div>
-                              <!--jq总价-->
-                              <div class="col-md-2 col-sm-2 total_price">2499元</div>
+                              <!--jq输出总价-->
+                              <div class="col-md-2 col-sm-2 total_price">2499</div>
                               <div class="col-md-1 col-sm-1 text-center"><a href="">x</a></div>
                           </div>
 
@@ -106,6 +108,7 @@
                           </div>
                       </div>
                   </div>
+                  
               </li>
             </ul>
         </div>
@@ -121,7 +124,7 @@
                 <div class="col-md-6 col-sm-6 right cookbook_lower_right">
                     <div class="right">
                         <span>合计:</span>
-                        <p class="inline_block total_price"></p>元
+                        <p class="inline_block total_price cookbook_lower_right_p">????</p>元
                         <a href="">去结算</a>
                     </div>
                 </div>
@@ -256,6 +259,57 @@
             }
 
         });
+
+        // 全选反选按钮
+        $('#all_checkbox').click(function () {
+            // var selset = $(this).attr(':checked');       //可以通过attr方法去获得属性，通过prop方法去获得特性，
+            // console.log(selset);                         // 属性指的是“name，id”等等，特性指的是“selectedIndex, tagName, nodeName”等等
+
+            // 全选
+            if(($(this).prop('checked')) == true){
+                // console.log($(this).prop('checked'));
+
+                $('.checkbox').prop('checked',true);
+            }
+
+            // 反选
+            if(($(this).prop('checked')) == false){
+                // console.log($(this).prop('checked'));
+
+                $('.checkbox').prop('checked',false);
+            }
+
+        });
+
+        // 全部的checkbox
+        $('.checkbox').click(function () {
+
+            // 获取全部的checkbox
+            var cb = $("input[class='checkbox']");
+            // console.log(cb);
+
+            // 获取被选中的checkbox
+            var selectcb = $("input[class='checkbox']:checked");
+            // console.log(selectcb);
+
+            // 全部的checkbox 和被选中的checkbox相同的时候
+            if(cb.length == selectcb.length){
+                $('#all_checkbox').prop('checked',true);
+
+            }
+
+            // 全部的checkbox 和被选中的checkbox不相同的时候
+            if(cb.length != selectcb.length){
+                $('#all_checkbox').prop('checked',false);
+            }
+
+        })
+
+
+
+
+
+
     })
 </script>
 {% endblock %}

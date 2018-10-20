@@ -73,7 +73,7 @@
 }
 
 .cookbook > li{
-    border: none;
+    /*border: none;*/
 }
 
 .cookbook_top{
@@ -83,7 +83,7 @@
 .cookbook_top div{
     height: 60px;
     line-height: 50px;
-    border-bottom: 1px solid #f5f5f5;
+
 }
 
 .cookbook_in{
@@ -185,7 +185,7 @@
 
 }
 
-.cookbook_lower_right > p{
+.cookbook_lower_right_p{
     font-size: 25px;
     color: #ff6700;
 }
