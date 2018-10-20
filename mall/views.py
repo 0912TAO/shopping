@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.http import JsonResponse
+from django.db import transaction
+from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required   # 需要登陆的装饰器
+
 from django.shortcuts import redirect           # 重定向
 from django.core.urlresolvers import reverse    # 反解析
 
@@ -9,6 +13,7 @@ from django.contrib.auth.models import User
 from io import BytesIO
 
 from . import utils
+from . import models
 
 # 主页
 def index(request):
@@ -16,6 +21,7 @@ def index(request):
 
 
 # 注册
+@transaction.atomic
 def register(request):
     if request.method == "GET":
         return render(request, 'mall/register.html', {})
@@ -24,23 +30,30 @@ def register(request):
         password = request.POST['password'].strip()
         querenpassword = request.POST['querenpassword'].strip()
         code = request.POST['code']
-
+        print(username, password, code)
         if code.upper() != request.session['code'].upper():
             return render(request, 'mall/register.html', {"msg": "验证码不正确，请重新注册"})
-
-
         if len(password) < 6:
             return render(request, 'mall/register.html', {"msg": "密码长度不足6位，请重新注册"})
         if password != querenpassword:
             return render(request, 'mall/register.html', {"msg": "两次输入密码不一致，请重新注册"})
 
         try:
+            hyd = transaction.savepoint()
             User.objects.get(username=username)
             return render(request, 'mall/register.html', {"msg":"用户名已存在，请重新注册"})
         except:
-            user = User.objects.create_user(username=username,password=password)
-            user.save()
-            return render(request, "mall/login.html", {"msg":"恭喜注册成功，请登录"})
+            try:
+                user = User.objects.create_user(username=username, password=password)
+                usera = models.UserA(user=user)
+                user.save()
+                usera.save()
+                transaction.savepoint_commit(hyd)
+
+                return render(request, "mall/user_login.html", {"msg": "恭喜注册成功，请登录"})
+            except:
+                transaction.savepoint_rollback(hyd)
+                return render(request, "mall/register.html", {"msg": "注册失败，请重新注册"})
 
 
 
@@ -88,11 +101,25 @@ def user_login(request):
         username = request.POST['username']
         password = request.POST['password']
 
-    try:
-        user = User.objects.get(username=username, password=password)
-        print(user)
-    except:
-        return render(request, 'mall/login.html', {"msg":"账号或密码错误，请重新输入"})
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return render(request, 'mall/index.html', {"user": user})
+            else:
+                return render(request, 'mall/user_login.html', {"msg": "您的账号已被禁用，请联系管理员"})
+        else:
+            return render(request, 'mall/user_login.html', {"msg": "账号或密码错误，请重新登录"})
+
+
+
+
+
+# 退出登录
+def user_logout(request):
+    logout(request)
+    return render(request, 'mall/user_login.html', {})
+
 
 
 # 商品信息

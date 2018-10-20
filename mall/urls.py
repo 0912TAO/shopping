@@ -12,7 +12,8 @@ urlpatterns = [
     url(r'^(\w+)/checkcode/$', views.checkcode, name='checkcode'),
     # 验证用户名是否存在
     url(r'^(\w+)/checkusername/$', views.checkusername, name='checkusername'),
-
+    # 退出登录
+    url(r'^user_logout/$', views.user_logout, name="user_logout"),
 
     # url(r'^commodity_info/$', views.commodity_info, name='commodity_info')        # 商品信息
 
