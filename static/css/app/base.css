@@ -27,13 +27,13 @@
     height: 40px;
     /*background-color: #398439;*/
 }
-.top-nav .content .top-nav-content-l ul li,
-.top-nav .content .top-nav-content-r .user ul li{
+.top-nav .content .top-nav-content-l>ul>li,
+.top-nav .content .top-nav-content-r .user>ul>li{
     float: left;
     /*margin-right: 8px;*/
 }
-.top-nav .content .top-nav-content-l ul li a,
-.top-nav .content .top-nav-content-r .user ul li a{
+.top-nav .content .top-nav-content-l ul>li>a,
+.top-nav .content .top-nav-content-r .user>ul>li>a{
     /*width: 25px;*/
     height: 13px;
     display: block;
@@ -45,6 +45,9 @@
     text-align: center;
     border-right: 1px solid #678;
 }
+.dropdown-menu{
+    margin-top: 15px;
+}
 .top-nav .content .top-nav-content-l ul li .end,
 .top-nav .content .top-nav-content-r .user ul li .end{
     border-right: none;
@@ -54,8 +57,11 @@
     color: #f1f1f1;
     text-decoration: none;
 }
+.top-nav .content .top-nav-content-r .user ul li>ul>li>a:hover{
+    color: #333;
+}
 .top-nav .content .top-nav-content-r{
-    width: 278px;
+    width: 300px;
     height: 40px;
     /*background-color: #1A8BE8;*/
 }
@@ -125,20 +131,20 @@
     text-decoration: none;
  }
 
-nav{
+.daohang{
     width: 700px;
     height: 100px;
     /*background-color: #cccc77;*/
     margin-top: -20px;
     margin-left: 200px;
 }
-nav ul li{
+.daohang ul li{
     float: left;
     margin:0 10px;
     width: 88px;
     /*height: 100px;*/
 }
-nav ul>li>a{
+.daohang ul>li>a{
     display: inline-block;
     color: #333;
     font-size: 17px;
@@ -146,7 +152,7 @@ nav ul>li>a{
     font-weight: 500;
     position: relative;
 }
-nav ul li a:hover{
+.daohang ul li a:hover{
     color: #ff6700;
     text-decoration: none;
 }
@@ -546,6 +552,11 @@ main{
     font-size: 13px;
     color: #333;
     line-height: 50px;
+}
+.two-nav ul li .content ul li a:hover{
+    background-color: #fff;
+    color: #f54b07;
+    text-decoration: none;
 }
 .two-nav ul li .content ul li a img{
     width: 40px;

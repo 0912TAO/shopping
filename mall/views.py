@@ -113,12 +113,22 @@ def user_login(request):
 # 退出登录
 def user_logout(request):
     logout(request)
-    return render(request, 'mall/user_login.html', {})
+    return render(request, 'mall/user_login.html', {"msg":"您已成功退出！"})
+
+
+# 商品购买
+def product(request):
+    return render(request, "mall/product.html", {})
 
 
 # 商品详情
-def product(request):
-    return render(request, "mall/product.html", {})
+def xiangqing(request):
+    return render(request, "mall/xiangqing.html", {})
+
+
+# 商品评论
+def pinglun(request):
+    return render(request, "mall/pinglun.html", {})
 
 
 # 购物车添加成功页面

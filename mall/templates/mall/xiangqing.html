@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}
+购买
+{% endblock %}
+{% block baner %}
+{% endblock %}
+{% block main %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'mall/css/app/product.css' %}">
+<style>
+    .content,
+    .content img,
+    .content video {
+        width: 100%;
+        height: auto;
+        padding: 0;
+    }
+    .content video{
+        margin-bottom: -5px;
+    }
+</style>
+<nav class="navbar navbar-default" id="three_nav">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <span class="navbar-brand">手机贵族——百岁山</span>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'mall:xiangqing' %}" style="color:#f54b07;">商品详情</a></li>
+                <li><a href="{% url 'mall:pinglun' %}">用户评价</a></li>
+                <li>
+                    <button onclick="window.location ='/mall/product/';" style="margin-top: 10px;"
+                            class="btn btn-block btn-danger">购买
+                    </button>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 content">
+            <img src="{% static 'mall/images/xiangqingjieshao.jpg' %}">
+            <video src="{% static 'mall/images/xiangqingjieshao1.mp4' %}"></video>
+            <img src="{% static 'mall/images/xiangqingjieshao2.jpg' %}">
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(window).scroll(function () {
+        var st = $(this).scrollTop();
+        console.log(st);
+        if (st >= 250) {
+            $("#three_nav").attr("class");
+            $("#three_nav").attr("class", "navbar navbar-default navbar-fixed-top");
+        }
+        if (st < 250) {
+            $("#three_nav").attr("class");
+            $("#three_nav").attr("class", "navbar navbar-default ");
+        }
+
+    });
+</script>
+{% endblock %}
+{% block bar %}
+{% endblock %}

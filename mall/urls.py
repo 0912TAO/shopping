@@ -14,8 +14,12 @@ urlpatterns = [
     url(r'^(\w+)/checkusername/$', views.checkusername, name='checkusername'),
     # 退出登录
     url(r'^user_logout/$', views.user_logout, name="user_logout"),
-    # 商品详情
+    # 商品购买
     url(r'^product/$', views.product, name="product"),
+    # 商品详情
+    url(r'^xiangqing/$', views.xiangqing, name="xiangqing"),
+    # 商品评论
+    url(r'^pinglun/$', views.pinglun, name="pinglun"),
 
     # url(r'^commodity_info/$', views.commodity_info, name='commodity_info')        # 商品信息
 
