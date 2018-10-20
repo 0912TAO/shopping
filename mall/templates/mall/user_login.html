@@ -3,7 +3,7 @@
 <head>
     {% load static %}
     <meta charset="UTF-8">
-    <title>注册界面</title>
+    <title>登录界面</title>
     <link rel="stylesheet" href="{% static 'js/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'mall/css/app/register.css' %}">
     <script src="{% static 'js/lib/jquery2.2.4/jquery-2.2.4.min.js' %}"></script>
@@ -84,7 +84,7 @@
 <script>
     function changeCode() {
 //            document.getElementById("code").src = "/blog/code?id="+ new Date().getTime()
-        document.getElementById("code").src = "/blog/code?id=" + Math.random()
+        document.getElementById("code").src = "/mall/code?id=" + Math.random()
     }
 
 

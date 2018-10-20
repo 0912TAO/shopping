@@ -20,7 +20,7 @@
 </head>
 
 <body>
-{% block body %}
+
 <!--导航开始-->
 {% block nav %}
 <div class="top-nav" id="totop" name="#top">
@@ -190,7 +190,11 @@
     </div>
 </div>
 {% endblock %}
+
 <!--导航结束-->
+
+{% block baner %}
+
 <div id="baner">
     <div class="row">
         <div class="left two-nav">
@@ -388,6 +392,9 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block main %}
 <main>
     <div class="sj">
         <div class="title">
@@ -638,6 +645,13 @@
         </div>
     </div>
 
+
+</main>
+<!--<br><br><br>-->
+
+{% endblock %}
+<!--脚步开始-->
+{% block footer %}
 <div class="bar">
     <ul>
         <li>
@@ -662,12 +676,6 @@
         </li>
     </ul>
 </div>
-</main>
-<!--<br><br><br>-->
-
-{% endblock %}
-<!--脚步开始-->
-{% block footer %}
 <div class="footer_server">
     <ul>
         <li><a href="javascript:void(0)">预约维修服务</a></li>
