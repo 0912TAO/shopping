@@ -14,6 +14,10 @@ urlpatterns = [
     url(r'^(\w+)/checkusername/$', views.checkusername, name='checkusername'),
     # 退出登录
     url(r'^user_logout/$', views.user_logout, name="user_logout"),
+    # 修改用户头像
+    url(r'^change_header/$', views.change_header, name="change_header"),
+    # 修改用户密码
+    url(r'^change_password/$', views.change_password, name="change_password"),
     # 商品购买
     url(r'^product/$', views.product, name="product"),
     # 商品详情
