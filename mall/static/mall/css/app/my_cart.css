@@ -68,78 +68,199 @@
     background: #f5f5f5;
 }
 
-.menu{
+.cookbook{
     margin-top: 40px;
 }
 
-.menu > li{
+.cookbook > li{
     border: none;
 }
 
-.menu_top{
+.cookbook_top{
 
 }
 
-.menu_top div{
+.cookbook_top div{
     height: 60px;
     line-height: 50px;
     border-bottom: 1px solid #f5f5f5;
 }
 
-.menu_in{
+.cookbook_in{
 
 }
 
-.menu_in_left{
+.cookbook_in_left{
 
 }
 
-.menu_in_right{
+.cookbook_in_right{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.cookbook_in_right_top{
 
 }
 
-.menu_in_right_top{
-
-}
-
-.menu_in_right_top > div >a{
+.cookbook_in_right_top > div >a{
     font-size: 18px;
     font-weight: 500;
     color: black;
     text-decoration: none;
 }
 
-.menu_in_right_top > div:nth-of-type(5){
+.cookbook_in_right_top > div:nth-of-type(5){
     padding-left: 60px;
     color: #ff6700;
 }
 
-.menu_in_right_top > div:nth-of-type(4){
+.cookbook_in_right_top > div:nth-of-type(4){
     width: 120px;
     padding-left: 0;
     padding-right: 0;
     border: 1px solid #e0e0e0;
 }
 
-.menu_in_right_top > div:not(:first-child){
+.cookbook_in_right_top > div:not(:first-child){
     margin: 25px 0;
 }
 
-.menu_in_right_in{
+.cookbook_in_right_in{
+    margin-right: 0;
     background-color: #f5f5f5;
-    padding-right: -50px;
+    margin-left: 0;
 }
 
-.menu_in_right_in > div{
-
+.cookbook_in_right_in > div{
     padding: 25px 0;
 }
 
-.menu_in_right_lower{
+.cookbook_in_right_lower{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.cookbook_in_right_lower > div{
+    padding: 10px 0;
+    border: 1px solid #e0e0e0;
+}
+
+.cookbook_in_right_lower > div >a{
+    text-decoration: none;
+    color: black;
+}
+
+.cookbook_in_right_lower > div > a >img{
+    width: 25px;
+    height: 25px;
+    margin: 0 20px;
+}
+
+.cookbook_lower{
+    background: #ffffff;
+    width: 1140px;
 
 }
 
-.menu_lower{
+.cookbook_lower_left{
+    padding: 15px;
+}
+
+.cookbook_lower_left > a,span{
+    color:#757575;
+    text-decoration: none;
+}
+
+.cookbook_lower_right{
 
 }
+
+.cookbook_lower_right > p{
+    font-size: 25px;
+    color: #ff6700;
+}
+
+.cookbook_lower_right > a{
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 50px;
+    color: #ffffff;
+    background: #f25807;
+    margin-left: 50px;
+}
+
 /*------------------------- 商品结算 -------------------------*/
+
+/*------------------------- 商品推荐 -------------------------*/
+.propose{
+    margin-top: 50px;
+}
+
+.propose_title{
+    border-top: 1px solid #e0e0e0;
+    /*margin: 0;*/
+    position: relative;
+
+}
+
+.propose_title > span{
+    position: absolute;
+    font-size: 35px;
+    top:-25px;
+    left: 345px;
+    width: 450px;
+    background-color: #f5f5f5;
+}
+
+.propose_shop{
+    margin-top: 40px;
+    padding-bottom: 40px;
+}
+
+.propose_shop ul{
+    list-style: none;
+}
+
+.propose_shop ul li{
+    float: left;
+    width: 218px;
+    height: 300px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background: #ffffff;
+}
+
+.propose_shop ul li img{
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+.propose_shop ul li:nth-of-type(1) img{
+    padding: 0;
+}
+
+.propose_shop ul li div{
+    padding: 0 10px;
+}
+
+.propose_shop ul li div dd:nth-of-type(1){
+    padding: 5px 0;
+}
+
+.propose_shop ul li div dd:nth-of-type(2){
+    color: #ff6700;
+    padding: 5px 0;
+}
+
+.propose_shop ul li div dd:nth-of-type(3){
+    font-size: 16px;
+    color: #757575;
+    padding: 10px 0;
+}
+
+
+
+/*------------------------- 商品推荐 -------------------------*/
+
+

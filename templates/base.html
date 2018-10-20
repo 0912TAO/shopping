@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="zh">
+
 <head>
     {% load static %}
+
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -10,9 +12,15 @@
     <link rel="stylesheet" href="{% static 'js/lib/bootstrap-3.3.7-dist/css/bootstrap.css' %}">
     <script src="{% static 'js/lib/bootstrap-3.3.7-dist/js/bootstrap.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/app/base.css' %}">
+
+    {% block css %}
+
+    {% endblock %}
     <title>{% block title %}公共页面{% endblock %}</title>
 </head>
+
 <body>
+{% block body %}
 <!--导航开始-->
 {% block nav %}
 <div class="top-nav" id="totop" name="#top">
@@ -656,6 +664,8 @@
 </div>
 </main>
 <!--<br><br><br>-->
+
+{% endblock %}
 <!--脚步开始-->
 {% block footer %}
 <div class="footer_server">
