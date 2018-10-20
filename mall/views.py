@@ -15,6 +15,7 @@ from io import BytesIO
 from . import utils
 from . import models
 
+
 # 主页
 def index(request):
     return render(request, "mall/index.html", {})
@@ -56,8 +57,6 @@ def register(request):
                 return render(request, "mall/register.html", {"msg": "注册失败，请重新注册"})
 
 
-
-
 # 验证码
 def code(request):
     img, code = utils.create_code()
@@ -89,7 +88,6 @@ def checkusername(request, uname):
         return JsonResponse({"msg": "请继续输入", "success": True})
 
 
-
 # 登录
 def user_login(request):
     # GET方式打开页面
@@ -112,19 +110,15 @@ def user_login(request):
             return render(request, 'mall/user_login.html', {"msg": "账号或密码错误，请重新登录"})
 
 
-
-
-
 # 退出登录
 def user_logout(request):
     logout(request)
     return render(request, 'mall/user_login.html', {})
 
 
-
-# 商品信息
-def commodity_info(request):
-    pass
+# 商品详情
+def product(request):
+    return render(request, "mall/product.html", {})
 
 
 # 购物车添加成功页面
