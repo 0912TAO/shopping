@@ -134,3 +134,6 @@ STATICFILES_DIRS = [
 
 # 序列化session
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+# 判断是否登录的装饰器
+LOGIN_URL = "/mall/user_login/"
