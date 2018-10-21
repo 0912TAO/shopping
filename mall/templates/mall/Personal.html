@@ -3,7 +3,7 @@
 
 {% block title %}个人中心{% endblock %}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/yangshi.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/app/yangshi.css' %}"/>
 {% endblock %}
 {% block baner %}
 {% endblock %}
@@ -11,8 +11,9 @@
 
 {% block main %}
 
-
-<div class="container" style="margin-top: 100px;">
+{% load static %}
+<div class="big-box"  style="background-color: #f1f1f1;padding:50px 0;">
+<div class="container">
 			<div class="row">
 				<div class="tt_o">
 					<a href="">首页</a>
@@ -27,7 +28,7 @@
 									<h4>订单中心</h4>
 								</div>
 								<ul class="nav text-center" role="tablist">
-									<li role="presentation" class="active"><a href="#" >我的订单</a></li>
+									<li role="presentation"><a href="#" >我的订单</a></li>
 									<li role="presentation"><a href="#"  >评价晒单</a></li>
 								</ul>
 							</div>
@@ -48,7 +49,7 @@
 									<h4>服务中心</h4>
 								</div>
 								<ul class="nav text-center" role="tablist">
-									<li role="presentation"><a href="#">服务记录</a></li>
+									<li role="presentation"><a href="{% url 'mall:services' %}">服务记录</a></li>
 									<li role="presentation"><a href="#" >服务电话</a></li>
 								</ul>
 							</div>
@@ -57,8 +58,8 @@
 									<h4>账户管理</h4>
 								</div>
 								<ul class="nav text-center" role="tablist">
-									<li role="presentation" ><a href="#">个人信息</a></li>
-									<li role="presentation"><a href="#" >修改密码</a></li>
+									<li role="presentation" ><a href="{% url 'mall:changeinfo' %}">个人信息</a></li>
+									<li role="presentation"><a href="{% url 'mall:changepwd' %}" >修改密码</a></li>
 								</ul>
 							</div>
 						</div>
@@ -71,16 +72,16 @@
 								<div role="tabpanel" class="tab-pane active" id="wdzx">
 									<div class="col-md-6" style="margin-top: 30px;margin-bottom: 30px;">
 										<div class="col-md-5">
-											<img src="img/3.jpg"  alt="..." class="img-circle tt_img">
+											<img src="/{{userA.header}}" class="img-circle tt_img">
 										</div>
                                         <div class="col-md-6">
 											<div>
-												<h2>用户名</h2>
+												<h2>{{user.username}}</h2>
 												<!--根据时间判定输出话语：早，中，下，晚上好-->
-												<a  href="">晚上好</a>
+												<a href="javascript:void(0);">晚上好</a>
 											</div>
 											<div style="padding-top: 10px;">
-												<a style="color: orangered;" href="">修改个人信息></a>
+												<a style="color: orangered;" href="{% url 'mall:changeinfo' %}">修改个人信息></a>
 											</div>
 										</div>
 									</div>
@@ -89,7 +90,7 @@
 											<p>账号安全:<span style="color: orangered">普通</span></p>
 										</div>
 										<div>
-											<p>绑定手机: <span>110</span></p>
+											<p>绑定手机: <span>{{userA.phone}}</span></p>
 										</div>
 										<div>
 											<p>绑定邮箱: <span><a style="color: orangered;" href="">未绑定</a></span></p>
@@ -101,11 +102,11 @@
 										<div class="co-md-5 ">
 											<div class="col-md-6" style="margin-top: 30px;margin-bottom: 30px;">
 												<div class="col-md-5">
-													<img src="img/3.jpg"  alt="..." class="img-circle tt_img">
+													<img src="https://s01.mifile.cn/i/user/portal-icon-1.png"  alt="..." class="img-circle tt_img">
 												</div>
 												<div class="col-md-6">
 													<div class="tt_w">
-														<a  href="">待支付订单：0</a>
+														<span>待支付订单：0</span>
 													</div>
 													<div style="padding-top: 10px;">
 														<a style="color: orangered;" href="">查看待支付订单></a>
@@ -116,11 +117,11 @@
 										<div class="co-md-5 ">
 											<div class="col-md-6" style="margin-top: 30px;margin-bottom: 30px;">
 												<div class="col-md-5">
-													<img src="img/3.jpg"  alt="..." class="img-circle tt_img">
+													<img src="https://s01.mifile.cn/i/user/portal-icon-2.png"  alt="..." class="img-circle tt_img">
 												</div>
 												<div class="col-md-6">
 													<div class="tt_w">
-														<a  href="">待收货的订单：0</a>
+														<span>待收货的订单：0</span>
 													</div>
 													<div style="padding-top: 10px;">
 														<a style="color: orangered;" href="">查看待收货订单></a>
@@ -133,11 +134,11 @@
 										<div class="co-md-5 ">
 											<div class="col-md-6" style="margin-top: 30px;margin-bottom: 30px;">
 												<div class="col-md-5">
-													<img src="img/3.jpg"  alt="..." class="img-circle tt_img">
+													<img src="https://s01.mifile.cn/i/user/portal-icon-3.png"  alt="..." class="img-circle tt_img">
 												</div>
 												<div class="col-md-6">
 													<div class="tt_w">
-														<a  href="">带评价商品数：0</a>
+														<span>带评价商品数：0</span>
 													</div>
 													<div style="padding-top: 10px;">
 														<a style="color: orangered;" href="">查看待评价商品></a>
@@ -148,11 +149,11 @@
 										<div class="co-md-5 ">
 											<div class="col-md-6" style="margin-top: 30px;margin-bottom: 30px;">
 												<div class="col-md-5">
-													<img src="img/3.jpg"  alt="..." class="img-circle tt_img">
+													<img src="https://s01.mifile.cn/i/user/portal-icon-4.png"  alt="..." class="img-circle tt_img">
 												</div>
 												<div class="col-md-6">
 													<div class="tt_w">
-														<a  href="">喜欢商品：0</a>
+														<span>喜欢商品：0</span>
 													</div>
 													<div style="padding-top: 10px;">
 														<a style="color: orangered;" href="">查看喜欢商品></a>
@@ -218,7 +219,7 @@
 				</div>
 			</div>
 		</div>
-
+</div>
 {% endblock %}
 
 

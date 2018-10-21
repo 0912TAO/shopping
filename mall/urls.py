@@ -14,10 +14,19 @@ urlpatterns = [
     url(r'^(\w+)/checkusername/$', views.checkusername, name='checkusername'),
     # 退出登录
     url(r'^user_logout/$', views.user_logout, name="user_logout"),
+    # 修改个人信息
+    url(r'^changeinfo/$', views.changeinfo, name="changeinfo"),
     # 修改用户头像
-    url(r'^change_header/$', views.change_header, name="change_header"),
+    url(r'^changeheader/$', views.changeheader, name="changeheader"),
     # 修改用户密码
-    url(r'^change_password/$', views.change_password, name="change_password"),
+    url(r'^changepwd/$', views.changepwd, name="changepwd"),
+    # 验证密码是否正确
+    url(r'^(\w+)/check_password/$', views.check_password, name='check_password'),
+    # 个人中心
+    url(r'^personal/$', views.personal, name="personal"),
+    # 服务？？？
+    url(r'^services/$', views.services, name="services"),
+
     # 商品购买
     url(r'^product/$', views.product, name="product"),
     # 商品详情
@@ -29,10 +38,7 @@ urlpatterns = [
 
     # url(r'^add_cart/$', views.add_cart, name='add_cart'),                         # 添加购物车成功页面
     url(r'^my_cart/$', views.my_cart, name='my_cart'),                                 # 购物车页面
-    url(r'^Personal/$', views.Personal, name='Personal'),                              # 个人中心
-    url(r'^changeinfo/$', views.changeinfo, name='changeinfo'),                        # 修改个人信息
     url(r'^services/$', views.services, name='services'),                               # 服务中心
     url(r'^orders/$', views.orders, name='orders'),                               # 订单中心
-    url(r'^changepwd/$', views.changepwd, name='changepwd'),                        #修改密码
 
 ]
