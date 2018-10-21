@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>支付</title>
+    <link rel="stylesheet" href="{% static 'js/lib/bootstrap-3.3.7-dist/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'mall/css/app/pay.css' %}">
+</head>
+<body>
+
+    <div class="container_fluid button">
+
+        <div class="container title">
+
+            <!--左-->
+            <img class="title_left left" src="{% static 'mall/images/mi.png' %}">
+
+            <!--中-->
+            <div class="title_in">
+                <p class="left">支付订单</p>
+                <span class="left">所以请确认一哈</span>
+            </div>
+
+            <!--右-->
+            <div class="title_right right">
+                <a href="{% url 'mall:user_logout' %}">
+                    这里显示用户名
+                </a>
+                <span>|</span>
+                <a href="{% url 'mall:register' %}">
+                    我的订单
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container">
+            <!--订单信息-->
+            <div>
+
+            </div>
+            <!--付款方式-->
+            <div></div>
+        </div>
+    </div>
+</body>
+</html>

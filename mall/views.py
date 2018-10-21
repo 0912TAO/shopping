@@ -93,16 +93,15 @@ def checkusername(request, uname):
 def user_login(request):
     # GET方式打开页面
     if request.method == 'GET':
-<<<<<<< HEAD
-        return render(request, 'mall/user_login.html', {})
-=======
+
+
         try:
             next_url = request.GET['next']
         except:
             next_url = "/mall/"
         return render(request, 'mall/user_login.html', {"next_url": next_url})
 
->>>>>>> 721bbb2cf3c7641f3d3ee2e955f082da4de6d0c0
+
     # POST方式打开页面
     elif request.method == 'POST':
         username = request.POST['username']
@@ -127,7 +126,7 @@ def user_login(request):
 @login_required
 def user_logout(request):
     logout(request)
-    return render(request, 'mall/user_login.html', {"msg":"您已成功退出！"})
+    return render(request, 'mall/user_login.html', {"msg": "您已成功退出！"})
 
 
 # 完善个人资料
@@ -137,6 +136,7 @@ def overself(request):
         return render(request, "overself.html", {})
     if request.method == 'POST':
         pass
+
 
 # 更改头像
 @login_required
@@ -215,13 +215,14 @@ def my_cart(request):
         pass
 
 
-<<<<<<< HEAD
+
 # 开店申请页面 没有登录不能进入
 def open_shop(request):
     # 邮箱必须已经绑定弹窗提示
 
     return render(request, "mall/open_shop.html", {})
-=======
+
+
 # 订单中心
 def orders(request):
     return render(request, 'mall/orders.html', {})
@@ -236,9 +237,9 @@ def Personal(request):
         return render(request, "blog/show.html", {"user": user})
 
     except:
-        return render(request, "blog/failed.html", {"msg1": "未登录，请先登录！！"})
+        return render(request, 'mall/Personal.html', {})
 
-    return render(request, 'mall/Personal.html', {})
+
 
 
 # 服务管理
@@ -286,4 +287,21 @@ def changepwd(request):
         users.password = newloginpassword
         users.save()
         return redirect(reverse("blog:logout"))
->>>>>>> b467693ba9af16585f28e4e612ceb5cd2c8a6593
+
+
+# 确认订单页面
+# 必须登录@login_required装饰器
+# 需要传商品信息 和 个人信息
+def confirm(request):
+    return render(request, 'mall/confirm.html', {})
+
+
+# 确认支付页面
+# 必须登录@login_required装饰器
+# 确认商品数量和价格
+def pay(request):
+    return render(request, 'mall/pay.html', {})
+
+
+
+

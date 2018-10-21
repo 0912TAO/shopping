@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+
+.right{
+    float:right;
+}
+.left{
+    float:left;
+}
+
+.inline_block{
+    display: inline-block;
+}
+
+.button{
+    height: 100px;
+    border-bottom: 2px solid #ff6700;
+}
+
+/*------------------------- 头 -------------------------*/
+.title{
+    padding-top: 30px;
+}
+
+.title_left{
+    width: 48px;
+    height: 48px;
+}
+
+.title_in{
+
+}
+
+.title_in > p{
+    font-size: 28px;
+    font-weight: 500;
+    margin-left: 35px;
+}
+
+
+.title_in > span{
+    margin-left: 20px;
+    font-size: 12px;
+    color: #757575;
+    line-height:50px;
+}
+
+.title_right{
+
+}
+
+.title_right > span{
+    color: #757575;
+}
+
+.title_right > a{
+    font-size: 12px;
+    color: #757575;
+    text-decoration: none;
+    line-height:50px;
+}
+/*------------------------- 头 -------------------------*/

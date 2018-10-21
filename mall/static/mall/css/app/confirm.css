@@ -1,0 +1,235 @@
+*{
+    margin: 0;
+    padding: 0;
+    font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+
+.right{
+    float:right;
+}
+.left{
+    float:left;
+}
+
+.inline_block{
+    display: inline-block;
+}
+
+.button{
+    height: 100px;
+    border-bottom: 2px solid #ff6700;
+}
+
+/*------------------------- 头 -------------------------*/
+.title{
+    padding-top: 30px;
+}
+
+.title_left{
+    width: 48px;
+    height: 48px;
+}
+
+.title_in{
+
+}
+
+.title_in > p{
+    font-size: 28px;
+    font-weight: 500;
+    margin-left: 35px;
+}
+
+
+.title_in > span{
+    margin-left: 20px;
+    font-size: 12px;
+    color: #757575;
+    line-height:50px;
+}
+
+.title_right{
+
+}
+
+.title_right > span{
+    color: #757575;
+}
+
+.title_right > a{
+    font-size: 12px;
+    color: #757575;
+    text-decoration: none;
+    line-height:50px;
+}
+/*------------------------- 头 -------------------------*/
+
+/*------------------------- 收货地址 -------------------------*/
+.bg{
+    padding-top: 50px;
+    background-color: #f5f5f5;
+}
+
+.prospect{
+    padding-top: 20px;
+    padding-left: 30px;
+    background-color: #ffffff;
+}
+.address{
+
+}
+
+.address_title > span{
+    color: #757575;
+}
+
+.address_input{
+    margin-top: 20px;
+    margin-left: 150px;
+}
+
+.address_input_small{
+    width: 283px;
+    height: 40px;
+    padding-left: 10px;
+    margin-right: 30px;
+}
+
+input { outline:none; }
+
+.address_input_small:focus{
+    border: 1px solid #ff6700;
+}
+
+.address_input_big{
+    width: 600px;
+    height: 60px;
+    margin: 10px 0;
+
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+/*------------------------- 收货地址 -------------------------*/
+
+/*------------------------- 商品 -------------------------*/
+
+
+.commodity{
+    margin-top: 20px;
+}
+
+.commodity_title{
+
+}
+
+.commodity_title > a{
+    line-height: 40px;
+    text-decoration: none;
+    color: #757575;
+}
+
+.commodity_sum{
+
+}
+
+.commodity_sum > ul{
+    list-style: none;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.commodity_sum > ul > li{
+    padding: 10px;
+}
+
+.commodity_sum > ul > li > a{
+    text-decoration: none;
+    color: black;
+}
+
+.commodity_sum > ul > li > span{
+    margin-left: 150px;
+    margin-right: 50px;
+}
+
+.commodity_sum > ul > li > span:nth-of-type(1){
+    color: #ff6700;
+}
+
+/*------------------------- 商品 -------------------------*/
+
+/*------------------------- 配送方式 -------------------------*/
+.method{
+
+}
+
+.method_title{
+    padding:20px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.method_title > span{
+    color: #ff6700;
+    margin-left: 50px;
+}
+/*------------------------- 配送方式 -------------------------*/
+
+/*------------------------- 发票 -------------------------*/
+.invoice{
+
+}
+
+.invoice_title{
+    padding-top: 30px;
+}
+
+
+.invoice_title > span{
+    font-size: 12px;
+    color: #ff6700;
+    margin-left: 50px;
+}
+
+.invoice_info{
+    margin-right: 20px;
+}
+
+.invoice_info > ul{
+    list-style: none;
+}
+
+.invoice_info > ul > li{
+    padding: 8px 0;
+}
+.invoice_info > ul > li > div{
+    width: 120px;
+}
+
+.invoice_info > ul > li > div:nth-of-type(1){
+    color: #757575;
+}
+
+.invoice_info > ul > li > div:nth-of-type(2){
+    color: #ff6700;
+}
+
+
+/*------------------------- 发票 -------------------------*/
+
+/*------------------------- 去结算 -------------------------*/
+.go_shopping{
+    margin-top: 10px;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+.go_shopping > a{
+    color: #ffffff;
+    padding: 10px 40px;
+    text-decoration: none;
+    background: #ff6700;
+}
+
+
+/*------------------------- 去结算 -------------------------*/

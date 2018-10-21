@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="ch">
+<head>
+    {% load static %}
+    <title>{% block title %}确认订单{% endblock %}</title>
+    <meta charset="UTF-8">
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'mall/css/app/confirm.css' %}">
+    {% endblock %}
+
+
+</head>
+<body>
+
+{% block nav %}
+{% endblock %}
+
+{% block baner %}
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="container_fluid button">
+
+        <div class="container title">
+
+            <!--左-->
+            <img class="title_left left" src="{% static 'mall/images/mi.png' %}">
+
+            <!--中-->
+            <div class="title_in">
+                <p class="left">确认订单</p>
+                <span class="left">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span>
+            </div>
+
+            <!--右-->
+            <div class="title_right right">
+                <a href="{% url 'mall:user_logout' %}">
+                    这里显示用户名
+                </a>
+                <span>|</span>
+                <a href="{% url 'mall:register' %}">
+                    我的订单
+                </a>
+            </div>
+        </div>
+    </div>
+<div class="container-fluid bg">
+    <div class="container prospect">
+        <!--收货地址-->
+        <div class="address">
+            <div class="address_title">
+                <h4 class="inline_block">收货地址</h4>
+                <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;大型商品下单后，收货地址将无法修改。快递公司会电话联系您确认送货时间，收货时需核对身份证信息。</span>
+            </div>
+
+            <div class="address_input">
+                <input type="text" id="" name="" placeholder="收货人姓名" class="address_input_small">
+                <input type="text" id="" name="" placeholder="手机号" class="address_input_small"><br/>
+                <input type="text" id="" name="" placeholder="三级联动默认占坑" class="address_input_big"><br/>
+                <textarea id="" name="" placeholder="详细地址" style="resize: vertical;" class="address_input_big"></textarea><br/>
+                <input type="text" id="" name="" placeholder="邮政编码" class="address_input_small">
+                <input type="text" id="" name="" placeholder="地址标签/家/公司" class="address_input_small">
+            </div>
+        </div>
+
+        <!--商品-->
+        <div class="commodity">
+            <div class="commodity_title">
+                <h4 class="inline_block">商品</h4>
+                <a class="right" href="javascript:void(0)">返回购物车 ></a>
+            </div>
+
+            <div class="commodity_sum">
+                <ul>
+                    <li>
+                        <img src="https://i1.mifile.cn/a1/pms_1527735134.03584233!30x30.jpg">
+                        <a href="javascript:void(0)">小米8 全网通版 6GB内存 64GB 黑色</a>
+                        <span class="right">2499元</span>
+                        <span class="right">2499元x1</span>
+                    </li>
+
+                    <li>
+                        <img src="https://i1.mifile.cn/a1/pms_1527735134.03584233!30x30.jpg">
+                        <a href="javascript:void(0)">小米8 全网通版 6GB内存 64GB 黑色</a>
+                        <span class="right">2499元</span>
+                        <span class="right">2499元x1</span>
+                    </li>
+
+                    <li>
+                        <img src="https://i1.mifile.cn/a1/pms_1527735134.03584233!30x30.jpg">
+                        <a href="javascript:void(0)">小米8 全网通版 6GB内存 64GB 黑色</a>
+                        <span class="right">2499元</span>
+                        <span class="right">2499元x1</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--配送方式-->
+        <div class="method">
+            <div class="method_title">
+                <h4 class="inline_block">配送方式</h4>
+                <span> 包邮 </span>
+            </div>
+        </div>
+
+        <!--发票-->
+        <div class="invoice">
+            <div class="invoice_title">
+                <h4 class="inline_block">明细</h4>
+                <span> 请认真审核一哈 </span>
+            </div>
+
+            <div class="invoice_info">
+                <ul class="right text-right">
+                    <li>
+                        <div class="inline_block">商品件数:</div>
+                        <div class="inline_block">1件</div>
+                    </li>
+                    <li>
+                        <div class="inline_block">商品总价:</div>
+                        <div class="inline_block">2499元</div>
+                    </li>
+                    <li>
+                        <div class="inline_block">运费:</div>
+                        <div class="inline_block">0元</div>
+                    </li>
+                    <li>
+                        <div class="inline_block">应付总额:</div>
+                        <div class="inline_block">2499元</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container go_shopping">
+        <a href="javascript:void(0);" class="right">去结算</a>
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>
