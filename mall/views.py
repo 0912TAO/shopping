@@ -136,3 +136,9 @@ def my_cart(request):
     elif request.method == 'POST':
         pass
 
+
+# 开店申请页面 没有登录不能进入
+def open_shop(request):
+    # 邮箱必须已经绑定弹窗提示
+
+    return render(request, "mall/open_shop.html", {})

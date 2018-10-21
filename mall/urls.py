@@ -22,4 +22,6 @@ urlpatterns = [
     # url(r'^add_cart/$', views.add_cart, name='add_cart'),                         # 添加购物车成功页面
     url(r'^my_cart/$', views.my_cart, name='my_cart'),                                 # 购物车页面
 
+    url(r'^open_shop/$', views.open_shop, name='open_shop'),                        # 申请店铺页面
+
 ]

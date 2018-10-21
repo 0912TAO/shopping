@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+}
+
+.pd{margin-top: 50px;}
+
+.col-md-3{
+    width:20%;
+
+}
+
+.left_menu{
+}
+
+.left_menu > ul{
+
+}
+
+.left_menu > ul > li > span{
+    display: block;
+    padding: 10px 0;
+    font-weight: 600;
+}
+
+.left_menu > ul > li > a{
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+    margin-right: 10px;
+}
+/* ---------------- 左边结束 ----------------*/
+
+.right_menu{
+    color: #666;
+    margin-bottom: 80px;
+}
+
+.right_menu > ul{
+
+}
+
+.right_menu > ul > li:nth-of-type(1){
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.right_menu > ul > li:nth-of-type(2){
+    font-size: 12px;
+    margin: 20px 0;
+}
+
+.right_menu > ul > li:nth-of-type(3) > p{
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.right_menu > ul > li:nth-of-type(3) > a{
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 600;
+    background: #ff6700;
+    border: 1px solid #ff6700;
+    border-radius: 5px;
+}
