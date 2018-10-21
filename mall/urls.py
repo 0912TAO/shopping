@@ -26,7 +26,6 @@ urlpatterns = [
     url(r'^personal/$', views.personal, name="personal"),
     # 服务？？？
     url(r'^services/$', views.services, name="services"),
-
     # 商品购买
     url(r'^product/$', views.product, name="product"),
     # 商品详情
