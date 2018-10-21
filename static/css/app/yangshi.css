@@ -1,7 +1,7 @@
-body{
-	
-	background-color: #f5f5f5;
-}
+/*body{*/
+	/**/
+	/*background-color: #f5f5f5;*/
+/*}*/
 
 
 .tt_a{
@@ -18,10 +18,18 @@ a{
 	display: inline-block;
 }
 
-.text-center h4{
-	margin-top: 40px;
+#back_personal{
+    color: #f54b07;
 }
-
+#back_personal:hover{
+    text-decoration: none;
+}
+.other>a{
+    display: inline-block;
+    width: 60px;
+    height: 18px;
+    margin-left: 15px;
+}
 
 .tt_m {
 	padding-top:10px;
@@ -40,12 +48,9 @@ a{
 
 
 .tt_img{
-	height: 122px;
-	width: 122px;
-	border: #000000 2px ridge;
-	padding: 1px;
-	redis:50%;
-	padding: 5px;
+	height: 133px;
+	width: 133px;
+
 }
 
 
@@ -68,4 +73,8 @@ a{
 	margin-left: 20px;
 	margin-bottom: 10px;
 	color:#757575 ;
+    margin-top: 20px;
+}
+.active>a{
+    color: #f54b07;
 }

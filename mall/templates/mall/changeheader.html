@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		 {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>个人中心--修改密码</title>
+        <link href="{% static 'mall/css/app/style.css' %}" rel="stylesheet" type="text/css"/>
+       	<script type="text/javascript" src="{% static 'js/lib/jquery2.2.4/jquery-2.2.4.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/app/tab.js '%}"></script>
+		<link rel="stylesheet" href="{% static 'js/lib/bootstrap-3.3.7-dist/css/bootstrap.css '%}">
+
+		<script src="{% static 'js/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js '%}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/app/yangshi.css '%}" />
+    </head>
+    <body style="background-color: #f5f5f5;">
+		<div class="container" style="margin-top: 10px;">
+			<div class=" col-lg-offset-2 col-md-8">
+				<div style="margin-bottom: 30px;">
+					<h3 style="display: inline-block;" ><a id="back_personal" href="javascript:void(0);">修改密码</a></h3>
+                    <div class="other" style="float: right;padding-top: 30px;">
+
+
+                        <a  href="{% url 'mall:personal' %}" style="font-weight: 600;">个人中心</a>
+                        <a  href="{% url 'mall:changeheader' %}">修改头像</a>
+                        <a  href="{% url 'mall:changeinfo' %}">个人信息</a>
+					    <a  href="{% url 'mall:user_logout' %}">退出</a>
+                    </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-lg-offset-2 col-md-3">
+						<div class="panel">
+							<div class="panel-body">
+								<ul class="nav text-center" role="tablist">
+									<img src="/{{userA.header}}" style="height: 122px;width: 122px; margin-bottom: 30px;margin-top: 30px;"  alt="..." class="img-circle tt_img">
+									<h4>{{user.username}}</h4>
+
+									<!--<li role="presentation" class="active"><a href="#" >查看信息</a></li>-->
+									<!--<li role="presentation"><a href="#">修改信息</a></li>-->
+									<!--<li role="presentation"><a href="#xgmm" aria-controls="xgmm" role="tab" data-toggle="tab">修改密码</a></li>-->
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+                        <div id="addCommodityIndex">
+
+
+             <!--input-group start-->
+                            <form action="/mall/changeheader/" method="post" enctype="multipart/form-data">
+								{% csrf_token %}
+            <div class="input-group row">
+                <div class="col-md-7 col-md-offset-7">
+                    <label>点击图片上传头像吧</label>
+                </div>
+
+                <div class="col-md-9 col-md-offset-7 big-photo" style="margin-top: 30px;">
+                	<div id="preview">
+                        <img id="imghead" border="0" src="/{{userA.header}}" width="150" height="150" onclick="$('#previewImg').click();">
+                     </div>
+                    <input type="file" onchange="previewImage(this)" name="header"  style="display: none;" id="previewImg">
+                	<!--<input id="uploaderInput" class="uploader__input" style="display: none;" type="file" accept="" multiple="">-->
+                    <button type="submit" class="btn btn-success" style="margin-top: 50px;width: 150px;">保存</button>
+                </div>
+
+            </div>
+            <!--input-group end-->
+</form>
+</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+
+    <script>
+      //图片上传预览    IE是用了滤镜。
+        function previewImage(file)
+        {
+          var MAXWIDTH  = 200;
+          var MAXHEIGHT = 200;
+          var div = document.getElementById('preview');
+          if (file.files && file.files[0])
+          {
+              div.innerHTML ='<img id=imghead onclick=$("#previewImg").click()>';
+              var img = document.getElementById('imghead');
+              img.onload = function(){
+                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                img.width  =  rect.width;
+                img.height =  rect.height;
+//                 img.style.marginLeft = rect.left+'px';
+                img.style.marginTop = rect.top+'px';
+              }
+              var reader = new FileReader();
+              reader.onload = function(evt){img.src = evt.target.result;}
+              reader.readAsDataURL(file.files[0]);
+          }
+          else //兼容IE
+          {
+            var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+            file.select();
+            var src = document.selection.createRange().text;
+            div.innerHTML = '<img id=imghead>';
+            var img = document.getElementById('imghead');
+            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+            var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+            status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+            div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+          }
+        }
+        function clacImgZoomParam( maxWidth, maxHeight, width, height ){
+            var param = {top:0, left:0, width:width, height:height};
+            if( width>maxWidth || height>maxHeight ){
+                rateWidth = width / maxWidth;
+                rateHeight = height / maxHeight;
+
+                if( rateWidth > rateHeight ){
+                    param.width =  maxWidth;
+                    param.height = Math.round(height / rateWidth);
+                }else{
+                    param.width = Math.round(width / rateHeight);
+                    param.height = maxHeight;
+                }
+            }
+            param.left = Math.round((maxWidth - param.width) / 2);
+            param.top = Math.round((maxHeight - param.height) / 2);
+            return param;
+        }
+    </script>
+    </body>
+</html>

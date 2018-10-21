@@ -93,22 +93,34 @@ def checkusername(request, uname):
 def user_login(request):
     # GET方式打开页面
     if request.method == 'GET':
+<<<<<<< HEAD
 
 
+=======
+        # return render(request, 'mall/user_login.html', {})
+>>>>>>> cb1b1cda2de65d5dc792e58083aee0740b98fb56
         try:
             next_url = request.GET['next']
         except:
             next_url = "/mall/"
+
+<<<<<<< HEAD
+
+=======
+        if next_url == "/mall/user_logout/":
+            next_url = "/mall/"
+
         return render(request, 'mall/user_login.html', {"next_url": next_url})
-
-
+>>>>>>> cb1b1cda2de65d5dc792e58083aee0740b98fb56
     # POST方式打开页面
     elif request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-
         next_url = request.POST.get("next", "/mall/")
-        print(next_url)
+
+        if next_url == "/mall/user_logout/":
+            next_url = "/mall/"
+
         user = authenticate(username=username, password=password)
         request.session["loginUser"] = user
         if user is not None:
@@ -129,59 +141,103 @@ def user_logout(request):
     return render(request, 'mall/user_login.html', {"msg": "您已成功退出！"})
 
 
-# 完善个人资料
+# 个人中心
 @login_required
-def overself(request):
+def personal(request):
+    userA = models.UserA.objects.get(user_id=request.user.id)
     if request.method == 'GET':
-        return render(request, "overself.html", {})
+        return render(request, "mall/personal.html", {"userA": userA})
     if request.method == 'POST':
         pass
 
 
+<<<<<<< HEAD
+=======
+# 修改个人资料
+def changeinfo(request):
+    userA = models.UserA.objects.get(user_id = request.user.id)
+    if request.method == "GET":
+        return render(request, "mall/changeinfo.html", {"userA": userA})
+    else:
+        gender = request.POST.get('gender', 0)
+        age = request.POST.get('age', 1)
+        phone = request.POST.get('phone', "")
+        add = request.POST.get('add', "")
+        print(gender,age,phone,add)
+
+        userA.gender = gender
+        userA.age = age
+        userA.phone = phone
+        userA.add = add
+        userA.save()
+        return render(request, "mall/changeinfo.html", {"userA": userA,"msg": "修改个人信息成功"})
+
+
+
+>>>>>>> cb1b1cda2de65d5dc792e58083aee0740b98fb56
 # 更改头像
 @login_required
-def change_header(request):
-    user = models.UserA.objects.get(user=request.user.id)
+def changeheader(request):
+    userA = models.UserA.objects.get(user=request.user.id)
     if request.method == "GET":
         print(request.user.id)
         print("********")
-        print(user)
+        print(userA)
         print("-----------")
-        return render(request, "change_header.html", {"user": user})
+        return render(request, "mall/changeheader.html", {"userA": userA})
     elif request.method == "POST":
-        header = request.FILES.get("header","static/images/1(1).jpeg")
+        header = request.FILES.get("header", "static/image/default.jpg")
         print(header)
         print("获取到头像数据")
-        user.herder = header
-        user.save()
-        return render(request, "change_header.html", {"msg": "头像修改成功"})
+        userA.header = header
+        userA.save()
+        return render(request, "mall/changeinfo.html", {"msg": "头像修改成功", "userA":userA})
+        # return reverse("mall/changeinfo.html", )
+
+# 验证旧密码
+def check_password(request, old_password):
+    u = User.objects.get(pk=request.user.id)
+    print(u)
+    print(u.username)
+    user = authenticate(username=u.username, password=old_password)
+    if user is None:
+        return JsonResponse({"msg": "输入的旧密码不正确", "success": False})
+    else:
+        return JsonResponse({"msg": "正确", "success": True})
 
 
 # 更改密码
 @login_required
-def change_password(request):
-    user = User.objects.get(pk = request.user.id)
-    print(user)
+def changepwd(request):
+    u = User.objects.get(pk=request.user.id)
+    userA = models.UserA.objects.get(user_id = request.user.id)
+    print(userA)
     if request.method == "GET":
-        return render(request, "change_header.html", {})
+        return render(request, "mall/changepwd.html", {"userA": userA})
     if request.method == "POST":
         old_password = request.POST['old_password']
         password = request.POST['password']
         two_password = request.POST['two_password']
 
-        user = authenticate(password=old_password)
+        print(old_password, password, two_password)
+
+        user = authenticate(username=u.username, password=old_password)
+
         if user is None:
-            return render(request, "change_password.html", {"msg": "旧密码不正确"})
+            return JsonResponse({"msg": "输入的旧密码不正确", "success": False})
         if len(password) < 6:
-            return render(request, "change_password.html", {"msg": "新密码不能小于6位"})
+            return JsonResponse({"msg": "输入的新密码小于6位", "success": False})
         if password != two_password:
-            return render(request, "change_password.html", {"msg": "两次输入密码不一致"})
+            return JsonResponse({"msg": "两次输入密码不一致", "success": False})
+
         try:
-            user = User.objects.create_user(password=password)
-            user.save()
-            return render(request, "user_login.html", {"msg": "修改密码成功"})
+            # user = User.objects.create_user(username=u.username, password=password)
+            # user.save()
+            u.set_password(password)
+            u.save()
+            return JsonResponse({"msg": "修改密码成功", "success": True})
         except:
-            return render(request, "change_password.html", {"msg": "修改密码失败"})
+            return JsonResponse({"msg": "修改密码失败", "success": False})
 
 
 # 商品购买
@@ -219,7 +275,6 @@ def my_cart(request):
 # 开店申请页面 没有登录不能进入
 def open_shop(request):
     # 邮箱必须已经绑定弹窗提示
-
     return render(request, "mall/open_shop.html", {})
 
 
@@ -228,6 +283,7 @@ def orders(request):
     return render(request, 'mall/orders.html', {})
 
 
+<<<<<<< HEAD
 # 个人中心
 def Personal(request):
     try:
@@ -239,6 +295,8 @@ def Personal(request):
     except:
         return render(request, 'mall/Personal.html', {})
 
+=======
+>>>>>>> cb1b1cda2de65d5dc792e58083aee0740b98fb56
 
 
 
@@ -247,6 +305,7 @@ def services(request):
     return render(request, 'mall/services.html', {})
 
 
+<<<<<<< HEAD
 # 修改信息
 def changeinfo(request,u_id):
     if request.method == "GET":
@@ -305,3 +364,5 @@ def pay(request):
 
 
 
+=======
+>>>>>>> cb1b1cda2de65d5dc792e58083aee0740b98fb56
