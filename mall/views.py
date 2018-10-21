@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.shortcuts import HttpResponse
 from django.http import JsonResponse
 from django.db import transaction
@@ -50,7 +51,7 @@ def register(request):
                 user.save()
                 usera.save()
                 transaction.savepoint_commit(hyd)
-
+                request.session["loginUser"] = user
                 return render(request, "mall/user_login.html", {"msg": "恭喜注册成功，请登录"})
             except:
                 transaction.savepoint_rollback(hyd)
@@ -92,18 +93,30 @@ def checkusername(request, uname):
 def user_login(request):
     # GET方式打开页面
     if request.method == 'GET':
+<<<<<<< HEAD
         return render(request, 'mall/user_login.html', {})
+=======
+        try:
+            next_url = request.GET['next']
+        except:
+            next_url = "/mall/"
+        return render(request, 'mall/user_login.html', {"next_url": next_url})
 
+>>>>>>> 721bbb2cf3c7641f3d3ee2e955f082da4de6d0c0
     # POST方式打开页面
     elif request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
 
+        next_url = request.POST.get("next", "/mall/")
+        print(next_url)
         user = authenticate(username=username, password=password)
+        request.session["loginUser"] = user
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return render(request, 'mall/index.html', {"user": user})
+                return redirect(next_url)
+                # return render(request, 'mall/index.html', {"user": user})
             else:
                 return render(request, 'mall/user_login.html', {"msg": "您的账号已被禁用，请联系管理员"})
         else:
@@ -111,14 +124,79 @@ def user_login(request):
 
 
 # 退出登录
+@login_required
 def user_logout(request):
     logout(request)
-    return render(request, 'mall/user_login.html', {})
+    return render(request, 'mall/user_login.html', {"msg":"您已成功退出！"})
+
+
+# 完善个人资料
+@login_required
+def overself(request):
+    if request.method == 'GET':
+        return render(request, "overself.html", {})
+    if request.method == 'POST':
+        pass
+
+# 更改头像
+@login_required
+def change_header(request):
+    user = models.UserA.objects.get(user=request.user.id)
+    if request.method == "GET":
+        print(request.user.id)
+        print("********")
+        print(user)
+        print("-----------")
+        return render(request, "change_header.html", {"user": user})
+    elif request.method == "POST":
+        header = request.FILES.get("header","static/images/1(1).jpeg")
+        print(header)
+        print("获取到头像数据")
+        user.herder = header
+        user.save()
+        return render(request, "change_header.html", {"msg": "头像修改成功"})
+
+
+# 更改密码
+@login_required
+def change_password(request):
+    user = User.objects.get(pk = request.user.id)
+    print(user)
+    if request.method == "GET":
+        return render(request, "change_header.html", {})
+    if request.method == "POST":
+        old_password = request.POST['old_password']
+        password = request.POST['password']
+        two_password = request.POST['two_password']
+
+        user = authenticate(password=old_password)
+        if user is None:
+            return render(request, "change_password.html", {"msg": "旧密码不正确"})
+        if len(password) < 6:
+            return render(request, "change_password.html", {"msg": "新密码不能小于6位"})
+        if password != two_password:
+            return render(request, "change_password.html", {"msg": "两次输入密码不一致"})
+        try:
+            user = User.objects.create_user(password=password)
+            user.save()
+            return render(request, "user_login.html", {"msg": "修改密码成功"})
+        except:
+            return render(request, "change_password.html", {"msg": "修改密码失败"})
+
+
+# 商品购买
+def product(request):
+    return render(request, "mall/product.html", {})
 
 
 # 商品详情
-def product(request):
-    return render(request, "mall/product.html", {})
+def xiangqing(request):
+    return render(request, "mall/xiangqing.html", {})
+
+
+# 商品评论
+def pinglun(request):
+    return render(request, "mall/pinglun.html", {})
 
 
 # 购物车添加成功页面
@@ -137,8 +215,75 @@ def my_cart(request):
         pass
 
 
+<<<<<<< HEAD
 # 开店申请页面 没有登录不能进入
 def open_shop(request):
     # 邮箱必须已经绑定弹窗提示
 
     return render(request, "mall/open_shop.html", {})
+=======
+# 订单中心
+def orders(request):
+    return render(request, 'mall/orders.html', {})
+
+
+# 个人中心
+def Personal(request):
+    try:
+        user = request.session["loginUser"]
+        print(1231231231)
+        print(1231231231)
+        return render(request, "blog/show.html", {"user": user})
+
+    except:
+        return render(request, "blog/failed.html", {"msg1": "未登录，请先登录！！"})
+
+    return render(request, 'mall/Personal.html', {})
+
+
+# 服务管理
+def services(request):
+    return render(request, 'mall/services.html', {})
+
+
+# 修改信息
+def changeinfo(request,u_id):
+    if request.method == "GET":
+        user = models.User.objects.filter(id=u_id).first()
+        return render(request, "blog/changeinfo.html", {"user": user})
+    else:
+        gender = request.POST['gender']
+        age = request.POST['age']
+        phone = request.POST['phone']
+        add = request.POST['add']
+        user = models.User.objects.get(pk=u_id)
+        user.gender = gender
+        user.age = age
+        user.save()
+        user.phone = phone
+        user.add = add
+        user.save()
+        return redirect("/blog/changeinfo/" + str(u_id) + "/")
+
+# 修改密码
+def changepwd(request):
+
+    users = request.session["loginUser"]
+    # users = models.User.objects.filter(id=u.id)
+    loginpassword = request.POST["userpassword"].strip()
+    print("初始密码" + loginpassword)
+    newloginpassword = request.POST["newnpassword"].strip()
+    print("新密码" + newloginpassword)
+    qnewloginpassword = request.POST["qnewnpassword"].strip()
+    print("输入新密码" + newloginpassword)
+    loginpassword = utils.hmac_by_md5(loginpassword)
+    if loginpassword != users.password:
+        return render(request, "blog/changepwd.html", {"msg1": "旧密码错误请重新输入！！"})
+    if newloginpassword != qnewloginpassword:
+        return render(request, "blog/changepwd.html", {"msg1": "两次密码不一样！！"})
+    else:
+        newloginpassword = utils.hmac_by_md5(newloginpassword)
+        users.password = newloginpassword
+        users.save()
+        return redirect(reverse("blog:logout"))
+>>>>>>> b467693ba9af16585f28e4e612ceb5cd2c8a6593

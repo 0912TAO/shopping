@@ -38,15 +38,31 @@
             </ul>
         </div>
         <div class="right top-nav-content-r">
+
             <div class="user">
                 <ul>
+
+                {% if user.username %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">欢迎你 {{user.username}} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="login-ya"><a href="#">个人中心</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="login-ya"><a href="{% url 'mall:user_logout' %}">安全退出</a></li>
+                        </ul>
+                    </li>
+{% else %}
                     <li><a href="{% url 'mall:user_login' %}">登录</a></li>
                     <li><a href="{% url 'mall:register' %}">注册</a></li>
+{% endif %}
                     <li><a href="#" class="end">消息通知</a></li>
+
                 </ul>
             </div>
             <div class="car">
-                <a href="{% url 'mall:my_cart' %}"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>购物车(0)</a>
+                <a href="{% url 'mall:my_cart' %}"><span class="glyphicon glyphicon-shopping-cart"
+                                                         aria-hidden="true"></span>购物车(0)</a>
             </div>
             <div class="car-neirong" hidden="hidden" style="z-index:auto">
                 购物车中还没有商品，赶紧选购吧！
@@ -63,7 +79,7 @@
             MI
         </a>
     </div>
-    <nav class="left">
+    <div class="left daohang">
         <ul>
             <li id="pingguo"><a href="javascript:void(0)">苹果手机</a>
 
@@ -180,7 +196,7 @@
             <li><a href="javascript:void(0)">华为手机</a></li>
             <li><a href="javascript:void(0)">蓝绿厂手机</a></li>
         </ul>
-    </nav>
+    </div>
     <div id="serch" class="right">
         <form class="navbar-form navbar-left">
             <div class="form-group">
@@ -404,7 +420,7 @@
         </div>
         <div class="main">
             <div class="index1 left">
-                <a href="">
+                <a href="{% url 'mall:product' %}">
                     <img src="{% static 'image/sj1.jpg' %}">
                 </a>
             </div>
@@ -413,7 +429,7 @@
                     <div class="index2">
                         <div class="top">
                             <span class="top-note">新品</span>
-                            <a href="">
+                            <a href="{% url 'mall:product' %}">
                                 <img src="{% static 'image/sj2.jpg' %}">
                             </a>
                             <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
@@ -429,7 +445,7 @@
                             <a href="">
                                 <img src="{% static 'image/sj2.jpg' %}">
                             </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
+                            <h5 class="tit"><a href="{% url 'mall:product' %}">小米8 青春版 4GB+64GB</a></h5>
                             <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
                             <div class="jiage text-center">1399元</div>
                         </div>
@@ -655,30 +671,7 @@
 {% endblock %}
 <!--脚步开始-->
 {% block footer %}
-<div class="bar">
-    <ul>
-        <li>
-            <a href="javascript:void(0);" title="会员中心" id="ren">
-                <span class="glyphicon glyphicon-user"></span>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0);" title="在线客服">
-                <span class="glyphicon glyphicon-headphones"></span>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0);" title="购物车">
-                <span class="glyphicon glyphicon-shopping-cart"></span>
-            </a>
-        </li>
-        <li>
-            <a href="#totop" title="回到顶部" name="#totop">
-                <span class="glyphicon glyphicon-triangle-top"></span>
-            </a>
-        </li>
-    </ul>
-</div>
+
 <div class="footer_server">
     <ul>
         <li><a href="javascript:void(0)">预约维修服务</a></li>
@@ -762,39 +755,65 @@
     <div class="boottomm">
     </div>
 </div>
+{% block bar %}
+<div class="bar">
+    <ul>
+        <li>
+            <a href="javascript:void(0);" title="会员中心" id="ren">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" title="在线客服">
+                <span class="glyphicon glyphicon-headphones"></span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" title="购物车">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+            </a>
+        </li>
+        <li>
+            <a href="#totop" title="回到顶部" name="#totop">
+                <span class="glyphicon glyphicon-triangle-top"></span>
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
 {% endblock %}
 <!--脚步结束-->
 
 
 <script>
 
-$(".car").hover(function () {
-    $(".car-neirong").stop().fadeToggle();
-});
-$("#pingguo").hover(function () {
-    $(".ad_pg").stop().fadeToggle();
-});
-$("#xm").hover(function () {
-    $(".ad_xm").stop().fadeToggle();
-});
-$("#one").hover(function () {
-    $("#one-con").stop().fadeToggle(500);
-});
-$("#two").hover(function () {
-    $("#two-con").stop().fadeToggle(500);
-});
-$("#three").hover(function () {
-    $("#three-con").stop().stop().fadeToggle(500);
-});
-$("#four").hover(function () {
-    $("#four-con").stop().fadeToggle(500);
-});
-$("#five").hover(function () {
-    $("#five-con").stop().fadeToggle(500);
-});
-$("#six").hover(function () {
-    $("#six-con").stop().fadeToggle(500);
-});
+    $(".car").hover(function () {
+        $(".car-neirong").stop().fadeToggle();
+    });
+    $("#pingguo").hover(function () {
+        $(".ad_pg").stop().fadeToggle();
+    });
+    $("#xm").hover(function () {
+        $(".ad_xm").stop().fadeToggle();
+    });
+    $("#one").hover(function () {
+        $("#one-con").stop().fadeToggle(500);
+    });
+    $("#two").hover(function () {
+        $("#two-con").stop().fadeToggle(500);
+    });
+    $("#three").hover(function () {
+        $("#three-con").stop().stop().fadeToggle(500);
+    });
+    $("#four").hover(function () {
+        $("#four-con").stop().fadeToggle(500);
+    });
+    $("#five").hover(function () {
+        $("#five-con").stop().fadeToggle(500);
+    });
+    $("#six").hover(function () {
+        $("#six-con").stop().fadeToggle(500);
+    });
 </script>
 </body>
 </html>

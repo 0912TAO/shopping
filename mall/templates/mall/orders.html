@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}订单中心{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/yangshi.css' %}"/>
+{% endblock %}
+{% block baner %}
+
+{% block main %}
+
+<div class="container" style="margin-top: 100px;">
+			<div class="row">
+				<div class="tt_o">
+					<a href="">首页</a>
+					<small>></small>
+					<small>订单中心</small>
+				</div>
+				<div class="col-md-3">
+					<div class="panel">
+						<div >
+							<div class="">
+								<div class="text-center ">
+									<h4>订单中心</h4>
+								</div>
+								<ul class="nav text-center" role="tablist">
+									<li role="presentation" class="active"><a href="#wddd" aria-controls="wddd" role="tab" data-toggle="tab">我的订单</a></li>
+									<li role="presentation"><a href="#wdpj" aria-controls="wdpj" role="tab" data-toggle="tab">评价晒单</a></li>
+								</ul>
+							</div>
+							<div class="">
+								<div class="text-center ">
+									<h4>个人中心</h4>
+								</div>
+								<ul class="nav text-center" role="tablist">
+									<li role="presentation" class="active"><a href="#wddd" aria-controls="wddd" role="tab" data-toggle="tab">我的个人中心</a></li>
+									<li role="presentation"><a href="#wdpj" aria-controls="wdpj" role="tab" data-toggle="tab">消息通知</a></li>
+									<li role="presentation"><a href="#wdpj" aria-controls="wdpj" role="tab" data-toggle="tab">现金账户</a></li>
+									<li role="presentation"><a href="#wdpj" aria-controls="wdpj" role="tab" data-toggle="tab">喜欢商品</a></li>
+									<li role="presentation"><a href="#wdpj" aria-controls="wdpj" role="tab" data-toggle="tab">收货地址</a></li>
+								</ul>
+							</div>
+							<div class="">
+								<div class="text-center ">
+									<h4>服务中心</h4>
+								</div>
+								<ul class="nav text-center" role="tablist">
+									<li role="presentation" class="active"><a href="#fujl" aria-controls="fujl" role="tab" data-toggle="tab">服务记录</a></li>
+									<li role="presentation"><a href="#fudh" aria-controls="fudh" role="tab" data-toggle="tab">服务电话</a></li>
+								</ul>
+							</div>
+							<div class="">
+								<div class="text-center ">
+									<h4>账户管理</h4>
+								</div>
+								<ul class="nav text-center" role="tablist">
+									<li role="presentation" ><a href="#">个人信息</a></li>
+									<li role="presentation"><a href="#" >修改密码</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="panel">
+						<div class="panel-body">
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" id="wddd">
+									<div class="tt_a">
+										<h1>我的订单</h1>
+										<small>请谨防钓鱼链接或诈骗电话，</small>
+										<a href="">了解更多></a>
+									</div>
+									<div class="col-md-8">
+										<ul class="nav tt_m" role="tablist">
+											<li role="presentation" class="active"><a href="#qbdd" aria-controls="qbdd" role="tab" data-toggle="tab">全部有效订单</a></li>
+											<li role="presentation"><a href="#dzf" aria-controls="dzf" role="tab" data-toggle="tab">待支付</a></li>
+											<li role="presentation"><a href="#dsh" aria-controls="dsh" role="tab" data-toggle="tab">待收货</a></li>
+											<li role="presentation"><a href="#ygb" aria-controls="ygb" role="tab" data-toggle="tab">已关闭</a></li>
+										</ul>
+									</div>
+									<div class="col-md-4">
+										<div class="">
+											<div class="input-group">
+												<input type="text" class="form-control" placeholder="输入搜索内容">
+												<span class="input-group-btn">
+												<button class="btn btn-default" type="button">搜索</button>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="tab-content">
+											<div role="tabpanel" class="tab-pane active" id="qbdd"><h1 class="text-center">暂无记录</h1></div>
+											<div role="tabpanel" class="tab-pane" id="dzf"><h1 class="text-center">暂无记录</h1></div>
+											<div role="tabpanel" class="tab-pane" id="dsh"><h1 class="text-center">暂无记录</h1></div>
+											<div role="tabpanel" class="tab-pane" id="ygb"><h1 class="text-center">暂无记录</h1></div>
+										</div>
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="wdpj">
+									<div class="tt_a">
+										<h1>商品评价</h1>
+									</div>
+									<div class="col-md-8">
+										<ul class="nav tt_m" role="tablist">
+											<li role="presentation" class="active"><a href="#dpj" aria-controls="dpj" role="tab" data-toggle="tab">待评价商品</a></li>
+											<li role="presentation"><a href="#ypj" aria-controls="ypj" role="tab" data-toggle="tab">已评价商品</a></li>
+											<li role="presentation"><a href="#pjsx" aria-controls="pjsx" role="tab" data-toggle="tab">评论失效商品</a></li>
+										</ul>
+									</div>
+									<div class="col-md-12">
+										<div class="tab-content">
+											<div role="tabpanel" class="tab-pane active" id="dpj"><h1 class="text-center">暂时没有符合条件的商品</h1></div>
+											<div role="tabpanel" class="tab-pane" id="ypj"><h1 class="text-center">暂时没有符合条件的商品</h1></div>
+											<div role="tabpanel" class="tab-pane" id="pjsx"><h1 class="text-center">暂时没有符合条件的商品</h1></div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+{% endblock %}
