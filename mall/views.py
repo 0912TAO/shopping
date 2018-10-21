@@ -50,7 +50,7 @@ def register(request):
                 user.save()
                 usera.save()
                 transaction.savepoint_commit(hyd)
-
+                request.session["loginUser"] = user
                 return render(request, "mall/user_login.html", {"msg": "恭喜注册成功，请登录"})
             except:
                 transaction.savepoint_rollback(hyd)
@@ -93,13 +93,13 @@ def user_login(request):
     # GET方式打开页面
     if request.method == 'GET':
         return render(request, 'mall/user_login.html', {})
-
     # POST方式打开页面
     elif request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
 
         user = authenticate(username=username, password=password)
+        request.session["loginUser"] = user
         if user is not None:
             if user.is_active:
                 login(request, user)
@@ -146,3 +146,68 @@ def my_cart(request):
     elif request.method == 'POST':
         pass
 
+
+# 订单中心
+def orders(request):
+    return render(request, 'mall/orders.html', {})
+
+
+# 个人中心
+def Personal(request):
+    try:
+        user = request.session["loginUser"]
+        print(1231231231)
+        print(1231231231)
+        return render(request, "blog/show.html", {"user": user})
+
+    except:
+        return render(request, "blog/failed.html", {"msg1": "未登录，请先登录！！"})
+
+    return render(request, 'mall/Personal.html', {})
+
+
+# 服务管理
+def services(request):
+    return render(request, 'mall/services.html', {})
+
+
+# 修改信息
+def changeinfo(request,u_id):
+    if request.method == "GET":
+        user = models.User.objects.filter(id=u_id).first()
+        return render(request, "blog/changeinfo.html", {"user": user})
+    else:
+        gender = request.POST['gender']
+        age = request.POST['age']
+        phone = request.POST['phone']
+        add = request.POST['add']
+        user = models.User.objects.get(pk=u_id)
+        user.gender = gender
+        user.age = age
+        user.save()
+        user.phone = phone
+        user.add = add
+        user.save()
+        return redirect("/blog/changeinfo/" + str(u_id) + "/")
+
+# 修改密码
+def changepwd(request):
+
+    users = request.session["loginUser"]
+    # users = models.User.objects.filter(id=u.id)
+    loginpassword = request.POST["userpassword"].strip()
+    print("初始密码" + loginpassword)
+    newloginpassword = request.POST["newnpassword"].strip()
+    print("新密码" + newloginpassword)
+    qnewloginpassword = request.POST["qnewnpassword"].strip()
+    print("输入新密码" + newloginpassword)
+    loginpassword = utils.hmac_by_md5(loginpassword)
+    if loginpassword != users.password:
+        return render(request, "blog/changepwd.html", {"msg1": "旧密码错误请重新输入！！"})
+    if newloginpassword != qnewloginpassword:
+        return render(request, "blog/changepwd.html", {"msg1": "两次密码不一样！！"})
+    else:
+        newloginpassword = utils.hmac_by_md5(newloginpassword)
+        users.password = newloginpassword
+        users.save()
+        return redirect(reverse("blog:logout"))

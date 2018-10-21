@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        {% load static %}
+		<meta charset="UTF-8">
+		<title>个人中心--用户信息管理</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/lib/changeinfo/tab.js '%}"></script>
+		<link rel="stylesheet" href="{% static 'js/lib/bootstrap-3.3.7-dist/css/bootstrap.css '%}">
+		<script src="{% static 'js/lib/jquery2.2.4/jquery-2.2.4.min.js '%}"></script>
+		<script src="{% static 'js/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js '%}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/yangshi.css '%}" />
+	</head>
+	<body style="background-color: #f5f5f5;">
+		<div class="container" style="margin-top: 10px;">
+			<div class=" col-lg-offset-2 col-md-8">
+				<div style="margin-bottom: 30px;">
+					<h3 style="display: inline-block;color: orangered;">小米账号</h3>
+					<a style="float: right;padding-top: 30px;" href="">退出</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-lg-offset-2 col-md-3">
+						<div class="panel">
+							<div class="panel-body">
+								<ul class="nav text-center" role="tablist">
+									<img src="img/3.jpg" style="height: 122px;width: 122px; margin-bottom: 30px;margin-top: 30px;" alt="..." class="img-circle tt_img">
+									<h4>用户昵称</h4>
+									<h5>编号</h5>
+									<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">查看信息</a></li>
+									<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">修改信息</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="panel">
+							<div class="panel-body">
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane active" id="home">
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name">姓名</div>
+											<div class="aui-flex-box">
+												<input readonly="readonly" type="text" placeholder="您的称呼(必填)">
+											</div>
+										</div>
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name">性别</div>
+											<div class="aui-flex-box">
+												<input readonly="readonly" type="text" placeholder="性别">
+											</div>
+										</div>
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name">年龄</div>
+											<div class="aui-flex-box">
+												<input readonly="readonly" type="text" placeholder="年龄">
+											</div>
+										</div>
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name">电话号码</div>
+											<div class="aui-flex-box">
+												<input readonly="readonly" type="text" placeholder="电话号码">
+											</div>
+										</div>
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name">地址</div>
+											<div class="aui-flex-box">
+												<input readonly="readonly" type="text" placeholder="您的收货地址">
+											</div>
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane" id="profile">
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name">姓名</div>
+											<div class="aui-flex-box">
+												<input readonly="readonly" type="text" value="" placeholder="">
+											</div>
+										</div>
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name">性别</div>
+											<div class="aui-flex-box">
+												<select id="gender" name="gender" style="font-size:20px;" class="btn btn-default">
+													<option value ="测试">原来属性</option>
+													<option value ="保密">保密</option>
+													<option value="男">男</option>
+													<option value="女">女</option>
+												</select>
+											</div>
+										</div>
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name">年龄</div>
+											<div class="aui-flex-box">
+												<input id="age" name="age" type="text" placeholder="您的年龄">
+											</div>
+										</div>
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name">电话号码</div>
+											<div class="aui-flex-box">
+												<input id="phone" name="phone" type="text" placeholder="电话号码">
+											</div>
+										</div>
+
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name">地址</div>
+											<div class="aui-flex-box">
+												<input id="add" name="add" type="text" placeholder="您的收货地址">
+											</div>
+										</div>
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name"></div>
+											<div class="aui-flex-box">
+												<!-- <input type="text" placeholder="您的收货地址"> -->
+												<button style="height: 40px;width: 70px;" class="btn btn-danger" onclick="xiugai_xinxi()" type="submit">保存</button>
+												<button style="height: 40px;width: 70px;" class="btn btn-default" type="submit">取消</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script type="text/javascript">
+
+			function xiugai_xinxi(){
+			    	gender = $("#gender").val()
+			    	age = $("#age").val()
+			    	phone = $("#phone").val()
+			    	add = $("#add").val()
+					console.info(gender)
+					console.info(age)
+					console.info(phone)
+					console.info(add)
+					$.ajax({
+						url: "/blog/changeinfo/",
+			            method: "POST",
+			            data: {"gender": gender, "age": age, "phone":phone, "add":add, "csrfmiddlewaretoken":"{{ csrf_token }}"},
+			            dataType: "json",
+			            success: function (data) {
+			                if (data.success) {
+			                    $("#msg1").html(data.msg1)
+			                    $("#gender").val("")
+								$("#age").val("")
+								$("#phone").val("")
+								$("#add").val("")
+			                    ue.setContent("")
+			                    //演示前端跳转页面
+			                    window.location.pathname = "/blog/index/"
+
+
+			                } else {
+			                    $("#msg1").html("信息修改失败！！！")
+			                }
+			            }
+					})
+			    }
+
+
+
+
+			$(function () {
+					$("#phone").on("blur",function () {
+							phone = $(this).val()
+					// content = $(this).UE.getContent()
+					if (phone.length < 1 ) {
+							$("#msg").html("电话格不能为空")
+					}else if(11>("#phone").val()>1) {
+							$("#msg").html("电话号码小于11位")
+					}
+					else if(11<$("#phone").val()) {
+							$("#msg").html("电话号码大于11位")
+					}
+						})
+				})
+
+
+				$(function () {
+						$("#age").on("blur",function () {
+								age = $(this).val()
+						// content = $(this).UE.getContent()
+						if (age.length < 1 ) {
+								$("#msg").html("请填写年龄")
+						}else if(age>120) {
+								$("#msg").html("年龄不合法")
+						}
+						else{
+							$("#msg").html("年龄合法")
+						}
+							})
+					})
+
+			$(function () {
+					$("#add").on("blur",function () {
+							add = $(this).val()
+					// content = $(this).UE.getContent()
+					if (add.length < 1 ) {
+							$("#msg").html("地址不能为空")
+					}
+						})
+				})
+		</script>
+	</body>
+</html>

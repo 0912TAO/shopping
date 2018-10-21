@@ -25,5 +25,10 @@ urlpatterns = [
 
     # url(r'^add_cart/$', views.add_cart, name='add_cart'),                         # 添加购物车成功页面
     url(r'^my_cart/$', views.my_cart, name='my_cart'),                                 # 购物车页面
+    url(r'^Personal/$', views.Personal, name='Personal'),                              # 个人中心
+    url(r'^changeinfo/$', views.changeinfo, name='changeinfo'),                        # 修改个人信息
+    url(r'^services/$', views.services, name='services'),                               # 服务中心
+    url(r'^orders/$', views.orders, name='orders'),                               # 订单中心
+    url(r'^changepwd/$', views.changepwd, name='changepwd'),                        #修改密码
 
 ]

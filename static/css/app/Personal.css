@@ -1,0 +1,65 @@
+.tt-color{
+    background: #f5f5f5;
+}
+
+
+ a{
+    color:#757575;
+}
+
+
+ .panel-body span{
+     color:#757575;
+ }
+
+.left li{
+    float: left;
+
+}
+
+
+.tt_li{
+     padding-left: 10px;
+}
+
+
+
+.left li a{
+    float: left;
+    font-size: 18px;
+}
+
+
+.tt_top{
+    margin-top: 20px;
+}
+
+
+.panel-body .tt_h{
+    padding-left: 20px;
+}
+
+
+.tt_s{
+    margin-left: -30px;
+}
+
+.tt_img{
+    border: #0f0f0f 2px  ridge;
+    redis:50%;
+}
+
+
+.tt_lis li{
+    margin-top: 10px;
+}
+
+
+.tt_h{
+    padding-top: 10px;
+}
+
+.tt-q{
+    margin-top: 30px;
+}
+

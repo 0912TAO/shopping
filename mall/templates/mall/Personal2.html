@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}个人中心{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/app/Personal.css' %}">
+{% endblock %}
+{% block baner %}
+{% endblock %}
+
+
+{% block main %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <a href="">首页</a>
+                <span > ></span>
+                <span >个人中心</span>
+            </div>
+            <!--左侧-->
+            <div class="col-md-3">
+                <div class="panel tt-color">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h4>订单中心</h4>
+                            <ul class="tt_lis">
+                                <li><a href="">我的订单</a></li>
+                                <li><a href="">评价晒单</a></li>
+                                <li><a href="">意外单保</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel tt-color">
+                    <div class="panel-body">
+                        <div class="text-center ">
+                            <h4>个人中心</h4>
+                            <ul class="tt_lis">
+                                <li><a href="">我的个人中心</a></li>
+                                <li><a href="">消息通知</a></li>
+                                <li><a href="">账户资金</a></li>
+                                <li><a href="">喜欢的商品</a></li>
+                                <li><a href="">喜欢的店铺</a></li>
+                                <li><a href="">收货地址</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel tt-color">
+                    <div class="panel-body">
+                        <div class="text-center ">
+                            <h4>售后服务</h4>
+                            <ul class="tt_lis">
+                                <li><a href="">服务记录</a></li>
+                                <li><a href="">申请服务</a></li>
+                                <li><a href="">售后电话</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel tt-color">
+                    <div class="panel-body">
+                        <div class="text-center ">
+                            <h4>账户管理</h4>
+                            <ul class="tt_lis">
+                                <li><a href="">个人信息</a></li>
+                                <li><a href="">修改密码</a></li>
+                                <li><a href="">社区认证</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--右侧-->
+            <div class="col-md-8">
+                <div class="panel tt-color">
+                    <div class="panel-body">
+                        <div class="col-md-6">
+                            <div class="panel-body">
+                                <div class="col-md-6">
+                                    <img class="img-circle tt_img" src="../../../static/image/1.png" height="122" width="122"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <div>
+                                         <h2>用户名</h2>
+                                        <!--根据时间判定输出话语：早，中，下，晚上好-->
+                                        <a  href="">晚上好</a>
+                                    </div>
+                                    <div style="padding-top: 10px;">
+                                        <a style="color: orangered;" href="">修改个人信息></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel-body">
+                                <div class="tt-q">
+                                    <div>
+                                        <p>账号安全:<span style="color: orangered">普通</span></p>
+                                    </div>
+                                    <div>
+                                        <p>绑定手机: <span>110</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+//切换标签选中样式
+$('ul.li_ys li a').click(function(){
+    $(this).addClass('active').siblings().removeClass('active');
+})
+
+</script>
+
+{% endblock %}
+
+

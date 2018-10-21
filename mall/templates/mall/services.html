@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}个人中心{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/yangshi.css' %}"/>
+{% endblock %}
+{% block baner %}
+{% endblock %}
+
+
+{% block main %}>
+
+<div class="container" style="margin-top: 100px;">
+			<div class="row">
+				<div class="tt_o">
+					<a href="">首页</a>
+					<small>></small>
+					<small>服务中心</small>
+				</div>
+				<div class="col-md-3">
+					<div class="panel">
+						<div >
+							<div class="">
+								<div class="text-center ">
+									<h4>订单中心</h4>
+								</div>
+								<ul class="nav text-center" role="tablist">
+									<li role="presentation" class="active"><a href="#" >我的订单</a></li>
+									<li role="presentation"><a href="#"  >评价晒单</a></li>
+								</ul>
+							</div>
+							<div class="">
+								<div class="text-center ">
+									<h4>个人中心</h4>
+								</div>
+								<ul class="nav text-center" role="tablist">
+									<li role="presentation" <a href="#">我的个人中心</a></li>
+									<li role="presentation"><a href="#" >消息通知</a></li>
+									<li role="presentation"><a href="#" >现金账户</a></li>
+									<li role="presentation"><a href="#" >喜欢商品</a></li>
+									<li role="presentation"><a href="#">收货地址</a></li>
+								</ul>
+							</div>
+							<div class="">
+								<div class="text-center ">
+									<h4>服务中心</h4>
+								</div>
+								<ul class="nav text-center" role="tablist">
+									<li role="presentation" class="active"><a href="#fujl" aria-controls="fujl" role="tab" data-toggle="tab">服务记录</a></li>
+									<li role="presentation"><a href="#fudh" aria-controls="fudh" role="tab" data-toggle="tab">服务电话</a></li>
+								</ul>
+							</div>
+							<div class="">
+								<div class="text-center ">
+									<h4>账户管理</h4>
+								</div>
+								<ul class="nav text-center" role="tablist">
+									<li role="presentation" ><a href="#">个人信息</a></li>
+									<li role="presentation"><a href="#" >修改密码</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="panel">
+						<div class="panel-body">
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" id="fujl">
+									<div class="tt_a">
+										<h1>我的服务单</h1>
+									</div>
+									<div>
+										<h4 style="color: #757575;" class="text-center">当前没有服务单哦~</h4>
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="fudh">
+									<div class="tt_a">
+										<h1>服务电话</h1>
+									</div>
+									<div>
+										<h4 style="color: #757575;" class="text-center">服务电话：31512315</h4>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+{% endblock %}
