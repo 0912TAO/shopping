@@ -259,6 +259,13 @@ def my_cart(request):
         pass
 
 
+<<<<<<< HEAD
+# 开店申请页面 没有登录不能进入
+def open_shop(request):
+    # 邮箱必须已经绑定弹窗提示
+
+    return render(request, "mall/open_shop.html", {})
+=======
 # 订单中心
 def orders(request):
     return render(request, 'mall/orders.html', {})
@@ -273,4 +280,26 @@ def services(request):
 
 
 
+<<<<<<< HEAD
 
+=======
+    users = request.session["loginUser"]
+    # users = models.User.objects.filter(id=u.id)
+    loginpassword = request.POST["userpassword"].strip()
+    print("初始密码" + loginpassword)
+    newloginpassword = request.POST["newnpassword"].strip()
+    print("新密码" + newloginpassword)
+    qnewloginpassword = request.POST["qnewnpassword"].strip()
+    print("输入新密码" + newloginpassword)
+    loginpassword = utils.hmac_by_md5(loginpassword)
+    if loginpassword != users.password:
+        return render(request, "blog/changepwd.html", {"msg1": "旧密码错误请重新输入！！"})
+    if newloginpassword != qnewloginpassword:
+        return render(request, "blog/changepwd.html", {"msg1": "两次密码不一样！！"})
+    else:
+        newloginpassword = utils.hmac_by_md5(newloginpassword)
+        users.password = newloginpassword
+        users.save()
+        return redirect(reverse("blog:logout"))
+>>>>>>> b467693ba9af16585f28e4e612ceb5cd2c8a6593
+>>>>>>> 15ae7c50db4f7cdfc58874571151b633c5b714d4

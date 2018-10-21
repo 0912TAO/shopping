@@ -41,4 +41,6 @@ urlpatterns = [
     url(r'^services/$', views.services, name='services'),                               # 服务中心
     url(r'^orders/$', views.orders, name='orders'),                               # 订单中心
 
+    url(r'^open_shop/$', views.open_shop, name='open_shop'),                        # 申请店铺页面
+
 ]

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+open_shop
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'mall/css/app/open_shop.css' %}">
+{% endblock %}
+
+{% block navnav %}
+{% endblock %}
+
+{% block baner %}
+{% endblock %}
+
+{% block main %}
+    <div class="container pd">
+        <div class="row">
+         <!--左-->
+            <div class="col-md-3 left_menu">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                      <span>店铺管理</span>
+                      <a href="">我要开店</a>
+                  </li>
+                  <li class="list-group-item">
+                      <span>交易管理</span>
+                      <a href="">已卖出的宝贝</a>
+                      <a href="">评价管理</a>
+                  </li>
+                  <li class="list-group-item">
+                      <span>物流管理</span>
+                      <a href="">发货</a>
+                  </li>
+                  <li class="list-group-item">
+                      <span>宝贝管理</span>
+                      <a href="">发布宝贝</a>
+                      <a href="">管理宝贝</a>
+                  </li>
+                  <li class="list-group-item">
+                      <span>客户服务</span>
+                      <a href="">举报管理</a>
+                  </li>
+                </ul>
+            </div>
+
+            <!--# 右-->
+            <div class="col-md-9 right_menu">
+                <ul class="list-group-item">
+                    <li>我要开店</li>
+                    <li>一个身份只能开一家店; 开店后店铺无法注销; 申请到正式开通预计需1~3个工作日。了解更多请看开店规则必看</li>
+                    <li class="text-center">
+                        <img src="{% static 'mall/images/个人.png' %}">
+                        <h3>个人店铺</h3>
+                        <p>通过支付宝个人实名认证的商家创建<br/>的店铺, 就是个人店铺。</p>
+
+                        <a href="">创建个人店铺</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

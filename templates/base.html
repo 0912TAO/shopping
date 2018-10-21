@@ -3,7 +3,6 @@
 
 <head>
     {% load static %}
-
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -72,6 +71,8 @@
     </div>
 </div>
 
+
+{% block navnav %}
 <div class="menu">
     <div id="logo">
         <a href="{% url 'mall:index'%}">
@@ -205,6 +206,7 @@
         </form>
     </div>
 </div>
+{% endblock %}
 {% endblock %}
 
 <!--导航结束-->
@@ -664,6 +666,7 @@
 
 </main>
 <!--<br><br><br>-->
+
 
 {% endblock %}
 <!--脚步开始-->
